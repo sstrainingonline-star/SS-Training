@@ -1,0 +1,246 @@
+let C=[]; let currentCourse=1; let currentModule=0; let exam=null;
+const pages=[...document.querySelectorAll('.page')], $=id=>document.getElementById(id);
+const storeKey='ssTrainingV3';
+const state=JSON.parse(localStorage.getItem(storeKey)||'{"courses":{},"profile":{"name":"SS Learner"},"entitlements":{},"integrity":[]}');
+// Public preview bypass disabled for the live site.
+let PREVIEW=false;
+function save(){localStorage.setItem(storeKey,JSON.stringify(state))}
+let restoringHistory=false;
+function historyStateFor(id){return {page:id,course:currentCourse,module:currentModule}}
+
+// SS TRAINING — secure Appwrite admin access.
+// The Team ID is an identifier, not a password/secret. No admin password is stored in GitHub.
+const SS_ADMIN_TEAM_ID='6ac02c66003dfcb821ad';
+let SS_ADMIN_AUTHORISED=false;
+
+async function ssAppwriteRequest(path,options={}){
+  const cfg=window.SS_APPWRITE||{};
+  if(!cfg.endpoint||!cfg.projectId)throw new Error('Appwrite configuration is missing.');
+  const response=await fetch(`${cfg.endpoint.replace(/\/$/,'')}${path}`,{
+    ...options,
+    credentials:'include',
+    headers:{
+      'Content-Type':'application/json',
+      'X-Appwrite-Project':cfg.projectId,
+      ...(options.headers||{})
+    }
+  });
+  if(!response.ok){
+    let message='Appwrite request failed.';
+    try{const data=await response.json();message=data.message||message}catch(e){}
+    throw new Error(message);
+  }
+  if(response.status===204)return null;
+  return response.json();
+}
+
+async function ssCreateSession(email,password){
+  try{await ssAppwriteRequest('/account/sessions/current',{method:'DELETE'})}catch(e){}
+  return ssAppwriteRequest('/account/sessions/email',{
+    method:'POST',
+    body:JSON.stringify({email,password})
+  });
+}
+
+async function ssIsAdmin(){
+  try{
+    await ssAppwriteRequest('/account');
+    const data=await ssAppwriteRequest('/account/memberships');
+    const memberships=data?.memberships||[];
+    SS_ADMIN_AUTHORISED=memberships.some(m=>m.teamId===SS_ADMIN_TEAM_ID);
+    return SS_ADMIN_AUTHORISED;
+  }catch(e){
+    SS_ADMIN_AUTHORISED=false;
+    return false;
+  }
+}
+
+async function ssAdminLogin(){
+  const loginPage=$('login');
+  const email=$('loginEmail')||loginPage?.querySelector('input[type="email"],input:not([type="password"])');
+  // Use a stable ID so the show/hide eye can change input type without breaking login.
+  const password=$('loginPassword')||loginPage?.querySelector('input[type="password"]');
+  const button=$('admin');
+  if(!email||!password)return alert('The login fields could not be found.');
+  const enteredEmail=email.value.trim();
+  const enteredPassword=password.value;
+  if(!enteredEmail||!enteredPassword)return alert('Please enter your email address and password.');
+
+  const oldText=button?.textContent||'Admin portal';
+  if(button){button.disabled=true;button.textContent='Checking access…'}
+  try{
+    await ssCreateSession(enteredEmail,enteredPassword);
+    if(!await ssIsAdmin()){
+      try{await ssAppwriteRequest('/account/sessions/current',{method:'DELETE'})}catch(e){}
+      return alert('Admin access denied. This account is not authorised for SS Training Admin.');
+    }
+    password.value='';
+    refreshAdmin();
+    wireAdminActions();
+    go('adminpage',{adminVerified:true});
+  }catch(error){
+    console.warn('SS Training admin login failed',error);
+    alert('Login unsuccessful. Please check your email address and password.');
+  }finally{
+    if(button){button.disabled=false;button.textContent=oldText}
+  }
+}
+function go(id,opts={}){
+  if(id==='adminpage'&&!SS_ADMIN_AUTHORISED&&!opts.adminVerified){
+    if(location.hash==='#adminpage')history.replaceState({page:'login'},'','#login');
+    id='login';
+  }
+  pages.forEach(p=>p.classList.remove('active'));$(id)?.classList.add('active');scrollTo(0,0);
+  if(!opts.fromHistory){
+    const st=historyStateFor(id), url='#'+id;
+    if(opts.replace) history.replaceState(st,'',url); else history.pushState(st,'',url);
+  }
+}
+function restoreHistory(st){
+  if(!st?.page)return go('home',{fromHistory:true});
+  restoringHistory=true;
+  if(st.page==='lesson'&&st.course){currentCourse=st.course;currentModule=st.module||0;renderLesson()}
+  else if(st.page==='detail'&&st.course){detail(st.course,{fromHistory:true});restoringHistory=false;return}
+  else if(st.page==='portal')renderPortal();
+  go(st.page,{fromHistory:true});restoringHistory=false;
+}
+window.addEventListener('popstate',e=>restoreHistory(e.state||{page:(location.hash||'#home').slice(1)}));
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go(b.dataset.page));
+
+// Password visibility control. Uses a stable input ID so revealing the password
+// never interferes with the Appwrite admin login lookup.
+const togglePassword=$('togglePassword'), loginPassword=$('loginPassword');
+if(togglePassword&&loginPassword){
+  togglePassword.onclick=()=>{
+    const show=loginPassword.type==='password';
+    loginPassword.type=show?'text':'password';
+    togglePassword.setAttribute('aria-pressed',String(show));
+    togglePassword.setAttribute('aria-label',show?'Hide password':'Show password');
+    togglePassword.textContent=show?'🙈':'👁';
+  };
+}
+
+// Properly end the Appwrite admin session when the Admin dashboard signs out.
+const adminSignOut=$('adminSignOut');
+if(adminSignOut){
+  adminSignOut.onclick=async()=>{
+    try{await ssAppwriteRequest('/account/sessions/current',{method:'DELETE'})}catch(e){}
+    SS_ADMIN_AUTHORISED=false;
+    const p=$('loginPassword'); if(p){p.value='';p.type='password'}
+    if(togglePassword){togglePassword.textContent='👁';togglePassword.setAttribute('aria-pressed','false');togglePassword.setAttribute('aria-label','Show password')}
+    go('home',{replace:true});
+  };
+}
+if(location.hash==='#adminpage'){
+  history.replaceState({page:'login'},'','#login');
+  go('login',{fromHistory:true});
+}else{
+  history.replaceState({page:(location.hash||'#home').slice(1)},'',location.hash||'#home');
+}
+function cs(id){return state.courses[id]||(state.courses[id]={completed:[],answers:{},reflections:{},started:Date.now(),finalScore:null,feedback:null,attempts:[]})}
+function owned(id){return PREVIEW||state.entitlements[id]?.status==='paid'}
+function logIntegrity(type,extra={}){state.integrity.push({type,course:currentCourse,at:new Date().toISOString(),...extra});save()}
+fetch('courses.json').then(r=>r.json()).then(d=>{C=d;draw();renderPortal()});
+
+function card(c){let s=cs(c.id),d=SS_CONTENT[c.id],pct=Math.round((s.completed.length/d.modules.length)*100);return `<article class="card" data-id="${c.id}"><small>${c.tag.toUpperCase()} • ${c.hours} CPD HOURS</small><h3>${c.title}</h3><p>${c.desc}</p>${owned(c.id)?`<div class="mini-progress"><b style="width:${pct}%"></b></div>`:''}<footer><b>£${c.price}</b><button aria-label="View course">→</button></footer></article>`}
+function draw(){featured.innerHTML=C.slice(0,3).map(card).join('');grid.innerHTML=C.map(card).join('');document.querySelectorAll('[data-id]').forEach(x=>x.onclick=()=>detail(+x.dataset.id))}
+function detail(id,navOpts={}){currentCourse=id;let c=C.find(x=>x.id===id),d=SS_CONTENT[id],isOwned=owned(id);detailbox.innerHTML=`<div class="detail"><div class="detailtop"><div><i>${c.tag.toUpperCase()} • ${c.hours} CPD HOURS</i><h1>${c.title}</h1><p>${c.desc}</p><p>This course uses advanced teaching, applied professional judgement, written evidence and a controlled final assessment.</p></div><aside class="buy"><b>£${c.price}</b><span>${c.hours} CPD hours</span><span>${d.modules.length} in-depth learning stages</span><span>4-option applied knowledge checks</span><span>Written professional reflection</span><span>Closed-learning final assessment</span><span>80% pass requirement</span><button class="cta" id="courseAction">${isOwned?'Start / continue course →':`Enrol now — £${c.price}`}</button>${PREVIEW?'<small>Admin preview mode is ON.</small>':''}</aside></div><div class="twocol"><section><h2>What you'll develop</h2><ul>${d.outcomes.map(x=>`<li>${x}</li>`).join('')}</ul></section><section><h2>Course pathway</h2><ol>${d.modules.map((x,i)=>`<li>${String(i+1).padStart(2,'0')} ${x.title}</li>`).join('')}</ol></section></div></div>`;go('detail',navOpts);$('courseAction').onclick=()=>isOwned?openCourse(id):beginCheckout(id)}
+function beginCheckout(id){let c=C.find(x=>x.id===id);detailbox.innerHTML+=`<div class="payment-note"><h2>Secure enrolment</h2><p><b>${c.title}</b> will be unlocked only after the payment provider confirms payment against the signed-in learner account.</p><p>This build deliberately does not fake a live payment. Connect the server-side Stripe Checkout session + webhook/Appwrite Function before launch; no secret key belongs in GitHub.</p>${PREVIEW?`<button class="soft" id="testUnlock">Preview unlock this course</button>`:''}</div>`;if(PREVIEW&&$('testUnlock'))$('testUnlock').onclick=()=>{state.entitlements[id]={status:'paid',source:'admin-preview',at:new Date().toISOString()};save();draw();detail(id)}}
+function openCourse(id,idx){if(!owned(id))return detail(id);currentCourse=id;let s=cs(id),d=SS_CONTENT[id],max=Math.min(s.completed.length,d.modules.length-1);let requested=idx??max;if(requested>max){alert('Complete the current stage before moving forward. You can revisit any completed stage at any time.');requested=max}currentModule=Math.max(0,requested);renderLesson();go('lesson')}
+function renderLesson(){let d=SS_CONTENT[currentCourse],m=d.modules[currentModule],s=cs(currentCourse);lesson.innerHTML=`<button class="back" id="dashBack">← Dashboard</button><div class="pagehero"><i>${d.short.toUpperCase()} • STAGE ${String(currentModule+1).padStart(2,'0')}</i><h1>${m.title}<br><em>${m.subtitle}</em></h1><p>${m.intro}</p></div><div class="learning"><div>${videoBlock(m)}<article><i>ADVANCED LEARNING</i><h2>${m.heading}</h2>${m.body.map(p=>`<p>${p}</p>`).join('')}${m.points?`<ul class="learn-list">${m.points.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}<blockquote>${m.takeaway}</blockquote></article>${quizBlock(m)}${taskBlock(m,s)}<div class="lesson-actions"><button class="soft" id="prevMod" ${currentModule===0?'disabled':''}>← Previous</button><button class="cta" id="completeMod">${s.completed.includes(currentModule)?'Completed ✓':'Complete stage'}</button><button class="soft" id="nextMod" ${(currentModule===d.modules.length-1||!s.completed.includes(currentModule))?'disabled':''}>Next →</button></div>${currentModule===d.modules.length-1?`<article class="finalbox"><i>FINAL ASSESSMENT</i><h2>Ready for the controlled assessment?</h2><p>Once started, learning navigation is removed. The assessment draws 15 questions from a larger bank, randomises question and answer order, requires 80%, and records focus-loss/paste attempts for integrity review.</p><button class="cta" id="startExam">Start final assessment →</button></article>`:''}</div><aside><i>COURSE PATHWAY</i>${d.modules.map((x,i)=>`<button class="path ${i===currentModule?'current':''} ${s.completed.includes(i)?'done':''} ${i>s.completed.length?'locked':''}" data-mod="${i}">${s.completed.includes(i)?'✓':'○'} ${String(i+1).padStart(2,'0')} ${x.title}</button>`).join('')}<div class="help"><b>Need support?</b><small>Your tutor is for support and escalation. The learning remains available for recap before the final assessment.</small><button id="askTutor">Ask tutor →</button></div></aside></div>`;
+$('dashBack').onclick=()=>{renderPortal();go('portal')};document.querySelectorAll('[data-mod]').forEach(b=>b.onclick=()=>openCourse(currentCourse,+b.dataset.mod));$('prevMod').onclick=()=>openCourse(currentCourse,currentModule-1);$('nextMod').onclick=()=>openCourse(currentCourse,currentModule+1);$('completeMod').onclick=()=>completeStage(m);$('askTutor').onclick=()=>openTutor(currentCourse);wireQuiz(m);wireTask(m,s);if($('startExam'))$('startExam').onclick=startExam}
+function videoBlock(m){return `<div class="video">${m.video?`<iframe src="${m.video}" title="SS Training course video" allowfullscreen></iframe>`:`<b>▶</b><span>SS TRAINING VIDEO</span><small>High-end demonstration / information video slot ready. Add the approved video URL to learning-data.js.</small>`}</div>`}
+function quizBlock(m){return `<article><i>APPLIED KNOWLEDGE CHECK</i><h2>${m.quiz.q}</h2>${m.quiz.a.map((a,i)=>`<label><input type="radio" name="stageq" value="${i}"> ${a}</label>`).join('')}<button class="cta" id="checkStage">Check answer</button><p id="stageResult"></p></article>`}
+function wireQuiz(m){$('checkStage').onclick=()=>{let q=document.querySelector('input[name=stageq]:checked');if(!q)return $('stageResult').textContent='Choose the best answer first.';let ok=+q.value===m.quiz.correct;$('stageResult').textContent=ok?'Correct — '+m.quiz.explain:'Not yet. Review the reasoning in this stage before trying again.';if(ok){cs(currentCourse).answers[currentModule]=true;save()}}}
+function taskBlock(m,s){return `<article><i>PROFESSIONAL EVIDENCE</i><h2>${m.task}</h2><textarea id="reflection" class="no-paste" placeholder="Write your own answer here. Paste is disabled for assessed reflection.">${s.reflections[currentModule]||''}</textarea><button class="soft" id="saveReflection">Save progress</button><small id="saveNote"></small></article>`}
+function wireTask(m,s){let r=$('reflection');r.addEventListener('paste',e=>{e.preventDefault();logIntegrity('reflection-paste-blocked',{module:currentModule});alert('Paste is disabled for this reflection. Please write the answer in your own words.')});$('saveReflection').onclick=()=>{s.reflections[currentModule]=r.value.trim();save();$('saveNote').textContent='Saved on this device ✓'}}
+function completeStage(m){let s=cs(currentCourse);if(!s.answers[currentModule])return alert('Please pass the applied knowledge check first.');let v=$('reflection').value.trim();if(v.length<120)return alert('Please provide at least 120 words of professional reasoning for this activity.');s.reflections[currentModule]=v;if(!s.completed.includes(currentModule))s.completed.push(currentModule);s.completed.sort((a,b)=>a-b);save();draw();renderLesson();alert('Stage completed and saved ✓ You can now continue to the next stage.')}
+function shuffled(a){return a.map(v=>({v,r:Math.random()})).sort((a,b)=>a.r-b.r).map(x=>x.v)}
+function startExam(){let d=SS_CONTENT[currentCourse],s=cs(currentCourse);if(s.completed.length<d.modules.length)return alert('Complete every learning stage before starting the final assessment.');let picked=shuffled(d.final.map((q,i)=>({...q,_id:i}))).slice(0,d.assessmentSettings?.questionsPerAttempt||15).map(q=>{let pairs=q.a.map((a,i)=>({a,ok:i===q.correct}));pairs=shuffled(pairs);return {...q,choices:pairs}});exam={course:currentCourse,questions:picked,started:Date.now(),focusLoss:0,pasteAttempts:0};renderExam();go('lesson')}
+function renderExam(){let c=C.find(x=>x.id===currentCourse);lesson.innerHTML=`<div class="exam-shell"><div class="exam-head"><i>SS TRAINING • CONTROLLED FINAL ASSESSMENT</i><h1>${c.title}</h1><p>Closed-learning mode. Choose the BEST professional response. Learning pages are unavailable until you submit or leave the assessment.</p></div><div class="exam-warning">Copy, cut, paste and right-click are disabled inside this assessment. Leaving the tab/window is logged for integrity review.</div>${exam.questions.map((q,n)=>`<article class="finalq"><b>${n+1}. ${q.q}</b>${q.choices.map((x,i)=>`<label><input type="radio" name="eq${n}" value="${i}"> ${x.a}</label>`).join('')}</article>`).join('')}<button class="cta" id="submitExam">Submit final assessment</button><button class="soft" id="leaveExam">Leave without submitting</button></div>`;wireExamSecurity();$('submitExam').onclick=submitExam;$('leaveExam').onclick=()=>{if(confirm('Leave the assessment? This attempt will not be marked.')){logIntegrity('exam-abandoned');exam=null;openCourse(currentCourse,SS_CONTENT[currentCourse].modules.length-1)}}}
+function wireExamSecurity(){let shell=document.querySelector('.exam-shell');['copy','cut','paste','contextmenu'].forEach(type=>shell.addEventListener(type,e=>{e.preventDefault();if(type==='paste')exam.pasteAttempts++;logIntegrity('exam-'+type+'-blocked')}));document.addEventListener('visibilitychange',examVisibility,{once:true});window.addEventListener('blur',examBlur,{once:true})}
+function examVisibility(){if(exam&&document.hidden){exam.focusLoss++;logIntegrity('exam-tab-hidden')}}
+function examBlur(){if(exam){exam.focusLoss++;logIntegrity('exam-window-blur')}}
+function submitExam(){let score=0,answered=0;exam.questions.forEach((q,n)=>{let x=document.querySelector(`input[name=eq${n}]:checked`);if(x){answered++;if(q.choices[+x.value].ok)score++}});if(answered<exam.questions.length)return alert('Please answer every question before submitting.');let pct=Math.round(score/exam.questions.length*100),s=cs(currentCourse);s.finalScore=pct;s.attempts.push({date:new Date().toISOString(),score:pct,questions:exam.questions.map(q=>q._id),focusLoss:exam.focusLoss,pasteAttempts:exam.pasteAttempts});save();let passed=pct>=80;lesson.innerHTML=`<div class="exam-result"><i>ASSESSMENT RESULT</i><h1>${pct}%</h1><h2>${passed?'Pass ✓':'Further study required'}</h2><p>${passed?'You have met the knowledge-assessment threshold. Complete course feedback to unlock the certificate.':'Review the learning before making another attempt. A new selection/order of questions will be used.'}</p><p>Integrity record: ${exam.focusLoss} focus event(s), ${exam.pasteAttempts} paste attempt(s).</p><button class="cta" id="returnCourse">Return to course →</button></div>`;exam=null;$('returnCourse').onclick=()=>openCourse(currentCourse,SS_CONTENT[currentCourse].modules.length-1)}
+function renderPortal(){if(!C.length)return;let ownedCourses=C.filter(c=>owned(c.id)),active=ownedCourses.find(c=>cs(c.id).completed.length)||ownedCourses[0];$('portal').innerHTML=`<div class="top"><div><i>LEARNER PORTAL</i><h1>Welcome back.</h1></div><button class="soft" id="signout">Sign out</button></div><div class="portal"><aside><button class="side active">◉ My Learning</button><button class="side" id="assessmentsBtn">○ Assessments</button><button class="side" id="tutorBtn">○ Tutor Support</button><button class="side" id="certBtn">○ Certificates</button><button class="side" id="portfolioBtn">○ Portfolio</button></aside><div>${active?portalCourse(active):'<div class="continue empty-learning"><h2>No courses enrolled yet</h2><p>Choose a course and complete secure enrolment to unlock learning.</p><button class="cta" id="browseCourses">Browse courses →</button></div>'}<div id="portalPanel" class="portal-panel"></div></div></div>`;$('signout').onclick=()=>go('home');if($('browseCourses'))$('browseCourses').onclick=()=>go('courses');$('assessmentsBtn').onclick=()=>portalPanel('assess');$('tutorBtn').onclick=()=>active?openTutor(active.id):null;$('certBtn').onclick=()=>portalPanel('cert');$('portfolioBtn').onclick=()=>portalPanel('portfolio')}
+function portalCourse(active){let s=cs(active.id),d=SS_CONTENT[active.id],pct=Math.round(s.completed.length/d.modules.length*100);return `<div class="continue"><i>CONTINUE LEARNING</i><h2>${active.title}</h2><p>Stage ${Math.min(s.completed.length+1,d.modules.length)} — ${d.modules[Math.min(s.completed.length,d.modules.length-1)].title}</p><div class="progress"><b style="width:${pct}%"></b></div><small>${pct}% complete • ${s.completed.length}/${d.modules.length} stages complete</small><button class="cta" id="continueCourse">Continue →</button></div><div class="stats"><span><b>${s.completed.length}</b>Stages</span><span><b>${s.finalScore??'—'}${s.finalScore!==null?'%':''}</b>Final score</span><span><b>${s.attempts.length}</b>Assessment attempts</span><span><b>Available</b>Tutor support</span></div>`}
+function portalPanel(type){let ownedC=C.filter(c=>owned(c.id)),out='';if(type==='assess')out='<h2>Assessments</h2>'+ownedC.map(c=>`<p><b>${c.title}</b> — ${cs(c.id).finalScore===null?'Not attempted':cs(c.id).finalScore+'%'}</p>`).join('');if(type==='cert')out='<h2>My certificates</h2>'+ownedC.map(c=>cs(c.id).finalScore>=80?`<article class="review-card"><h3>${c.title}</h3><p>Pass recorded • ${c.hours} CPD hours • Final score ${cs(c.id).finalScore}%</p><button class="cta learnerCert" data-course="${c.id}">View / save certificate →</button></article>`:`<p><b>${c.title}</b> — Not yet unlocked. Complete the course and achieve at least 80%.</p>`).join('');if(type==='portfolio')out='<h2>Learning portfolio</h2>'+ownedC.map(c=>`<p><b>${c.title}</b> — ${cs(c.id).completed.length}/${SS_CONTENT[c.id].modules.length} stages, ${Object.keys(cs(c.id).reflections).length} written evidence item(s)</p>`).join('');$('portalPanel').innerHTML=out;document.querySelectorAll('.learnerCert').forEach(b=>b.onclick=()=>showLearnerCertificate(+b.dataset.course))}
+function openTutor(id){renderPortal();go('portal');let c=C.find(x=>x.id===id);$('portalPanel').innerHTML=`<h2>Tutor support</h2><p>Ask for human support with <b>${c.title}</b>. AI support will later handle routine learning help; tutors remain available for escalation and professional review.</p><button class="soft" id="backToCourse">← Back to course</button><textarea id="tutorMsg" placeholder="What do you need help with?"></textarea><button class="cta" id="sendTutor">Save support request</button><p id="tutorStatus"></p>`;$('backToCourse').onclick=()=>openCourse(id,currentModule);$('sendTutor').onclick=()=>{let t=$('tutorMsg').value.trim();if(!t)return;state.support=state.support||[];state.support.push({course:id,message:t,date:new Date().toISOString(),status:'Open'});save();$('tutorStatus').textContent='Support request saved ✓'}}
+$('learner').onclick=()=>{if(!Object.values(state.entitlements||{}).some(x=>x?.status==='paid'))return alert('No active paid course is assigned to this learner yet.');renderPortal();go('portal')};$('admin').onclick=ssAdminLogin;
+// SS Course Assistant: useful immediately with no API key exposed in GitHub.
+// It guides visitors from the approved course catalogue and escalates nuanced enquiries to a human.
+const SS_CONTACT_EMAIL='sstrainingonline@gmail.com';
+function esc(s=''){return String(s).replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[c]))}
+function courseMatches(text){
+  const t=text.toLowerCase();
+  const map=[
+    [1,['fade','fading','blend','blending','skin fade','taper']],
+    [2,['scissor','scissors','precision','layer','graduation','cutting']],
+    [3,['afro','texture','textured','coily','curl','shaping']],
+    [4,['beard','facial hair','shave','shaping beard']],
+    [5,['consult','consultation','client journey','communication','service']],
+    [6,['business','price','pricing','profit','money','finance','shop owner']],
+    [7,['productivity','time','diary','booking','workflow','efficiency']],
+    [8,['social','instagram','content','marketing','online','brand']],
+    [9,['community','client growth','clients','clientele','network','event','pop-up']],
+    [10,['wellbeing','well-being','health','posture','burnout','professional practice']]
+  ];
+  return map.map(([id,words])=>({id,score:words.reduce((n,w)=>n+(t.includes(w)?1:0),0)})).filter(x=>x.score).sort((a,b)=>b.score-a.score).map(x=>C.find(c=>c.id===x.id)).filter(Boolean).slice(0,3)
+}
+function assistantReply(t){
+  const q=t.toLowerCase();
+  if(/human|person|admin|speak|call|contact|complaint|refund|payment problem|certificate problem|login problem/.test(q)) return {human:true,text:'This is best handled by a person. Send the details below and SS Training can deal with it directly.'};
+  if(/price|cost|how much|£/.test(q)) return {text:'Each course page shows its current price and CPD hours. The present collection is made up of 10 specialist, self-paced courses. Tell me the skill you want to develop and I can point you to the closest match.'};
+  if(/certificate|cpd/.test(q)) return {text:'SS Training courses are structured CPD. Learners complete the required stages and final assessment before a personalised course certificate is released. The certificate records the course and CPD hours.'};
+  if(/how.*work|assessment|exam|pass/.test(q)) return {text:'You work through each learning stage in order, complete the knowledge checks and written professional application, then take the controlled final assessment. The current pass requirement is 80%. You cannot skip unfinished stages.'};
+  const m=courseMatches(t);
+  if(m.length){return {text:`Based on what you have told me, ${m.length>1?'these are the strongest matches':'the strongest match'}:`,courses:m}}
+  return {text:'I can help you choose from SS Training’s barbering and professional-development courses. Tell me what you want to improve — for example technique, scissor work, textured hair, beard work, business, productivity, social media, client growth or professional wellbeing. If your question needs individual advice, I can pass it to a person.'};
+}
+async function submitEnquiry(enquiry){
+  const cfg=window.SS_APPWRITE||{};
+  if(!cfg.endpoint||!cfg.projectId||!cfg.enquiryFunctionId)return {ok:false,reason:'not-configured'};
+  try{
+    const r=await fetch(`${cfg.endpoint.replace(/\/$/,'')}/functions/${cfg.enquiryFunctionId}/executions`,{method:'POST',headers:{'Content-Type':'application/json','X-Appwrite-Project':cfg.projectId},body:JSON.stringify({body:JSON.stringify({action:'create',enquiry}),async:false})});
+    if(!r.ok)throw new Error('Appwrite '+r.status);
+    const data=await r.json();
+    return {ok:data.status==='completed' || data.statusCode===200,data};
+  }catch(error){console.warn('SS enquiry backend unavailable',error);return {ok:false,error:String(error)}}
+}
+function addHumanForm(original){
+  msgs.insertAdjacentHTML('beforeend',`<div class="human-handoff"><b>Ask SS Training</b><small>A person can take over when the question needs individual help.</small><input id="handoffName" placeholder="Your name"><input id="handoffEmail" type="email" placeholder="Your email"><textarea id="handoffText" placeholder="Your question">${esc(original)}</textarea><button class="cta" id="handoffSend">Send to SS Training →</button><small id="handoffStatus"></small></div>`);
+  $('handoffSend').onclick=async()=>{const name=$('handoffName').value.trim(),email=$('handoffEmail').value.trim(),body=$('handoffText').value.trim(),status=$('handoffStatus');if(!name||!email||!body){status.textContent='Please add your name, email and question.';return}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){status.textContent='Please enter a valid email address.';return}const enquiry={name,email,question:body,source:'course-assistant',courseInterest:courseMatches(body).map(c=>c.id),status:'new',createdAt:new Date().toISOString()};state.enquiries=state.enquiries||[];state.enquiries.unshift(enquiry);save();status.textContent='Sending securely…';const result=await submitEnquiry(enquiry);status.textContent=result.ok?'Thank you — your enquiry has been sent to SS Training. A person can now pick it up.':'Your enquiry has been saved on this device, but the secure Appwrite connection still needs finishing before it can reach SS Training automatically.';}
+}
+function send(t){
+  t=t.trim(); if(!t)return;
+  msgs.insertAdjacentHTML('beforeend',`<p class="me">${esc(t)}</p>`); msg.value='';
+  const r=assistantReply(t); let html=`<p>${esc(r.text)}`;
+  if(r.courses?.length) html+=`<span class="assistant-courses">${r.courses.map(c=>`<button class="assistant-course" data-course="${c.id}"><b>${esc(c.title)}</b><small>${c.hours} CPD hours • £${c.price}</small></button>`).join('')}</span>`;
+  html+='</p>'; msgs.insertAdjacentHTML('beforeend',html);
+  msgs.querySelectorAll('.assistant-course').forEach(b=>b.onclick=()=>detail(+b.dataset.course));
+  if(r.human)addHumanForm(t);
+  else if(!r.courses?.length) msgs.insertAdjacentHTML('beforeend','<button class="soft assistant-human">I need to ask a person →</button>');
+  msgs.querySelectorAll('.assistant-human').forEach(b=>b.onclick=()=>{b.remove();addHumanForm(t)});
+  msgs.scrollTop=msgs.scrollHeight;
+}
+$('send').onclick=()=>send(msg.value);document.querySelectorAll('.quick button').forEach(b=>b.onclick=()=>send(b.textContent));msg.onkeydown=e=>{if(e.key==='Enter')send(msg.value)};
+
+
+// BUILD 7 — interim admin operations, manual enrolment and certificate workflow.
+state.admin=state.admin||{learners:[],tutors:['Alex','Jamie'],certificates:[]};
+function learnerName(){return state.profile?.name||'SS Training Learner'}
+function adminPanel(title,html){let host=document.getElementById('adminWorkspace');if(!host)return;host.innerHTML=`<div class="admin-workspace"><div class="workspace-head"><h2>${title}</h2><button class="soft" id="closeWorkspace">Close</button></div>${html}</div>`;document.getElementById('closeWorkspace').onclick=()=>host.innerHTML='';host.scrollIntoView({behavior:'smooth'})}
+function refreshAdmin(){let rows=state.admin.learners.map((l,i)=>`<tr><td>${l.name}</td><td>${l.email}</td><td>${(l.courses||[]).map(id=>C.find(c=>c.id==id)?.title||id).join(', ')||'—'}</td><td>${l.tutor||'—'}</td><td>${l.status||'Active'}</td></tr>`).join('')||'<tr><td colspan="5">No registered learners yet.</td></tr>';let tbody=document.getElementById('adminLearnerRows');if(tbody)tbody.innerHTML=rows}
+function registerLearner(){adminPanel('Register learner',`<div class="formgrid"><label>Full name<input id="alName"></label><label>Email<input id="alEmail" type="email"></label><label>Status<select id="alStatus"><option>Active</option><option>Pending payment</option><option>Review</option></select></label></div><button class="cta" id="saveLearner">Register learner</button><p class="muted">Interim manual administration. Production accounts will be created and authenticated through Appwrite.</p>`);document.getElementById('saveLearner').onclick=()=>{let name=alName.value.trim(),email=alEmail.value.trim().toLowerCase();if(!name||!email)return alert('Enter the learner name and email.');if(state.admin.learners.some(x=>x.email===email))return alert('That learner is already registered.');state.admin.learners.push({name,email,status:alStatus.value,courses:[],tutor:'',created:new Date().toISOString()});save();refreshAdmin();adminPanel('Learner registered',`<p><b>${name}</b> has been added. You can now assign their paid course.</p>`)}}
+function assignCourse(){let opts=state.admin.learners.map((l,i)=>`<option value="${i}">${l.name} — ${l.email}</option>`).join(''),courses=C.map(c=>`<option value="${c.id}">${c.title}</option>`).join('');adminPanel('Assign paid course',`<div class="formgrid"><label>Learner<select id="acLearner">${opts}</select></label><label>Course<select id="acCourse">${courses}</select></label></div><button class="cta" id="saveCourseAssign">Activate course</button><p class="muted">Use this after you have independently confirmed payment. This records a manual entitlement for the interim build.</p>`);saveCourseAssign.onclick=()=>{let l=state.admin.learners[+acLearner.value],id=+acCourse.value;if(!l)return alert('Register a learner first.');l.courses=l.courses||[];if(!l.courses.includes(id))l.courses.push(id);l.status='Active';state.entitlements[id]={status:'paid',source:'admin-manual',learnerEmail:l.email,at:new Date().toISOString()};state.profile={...state.profile,name:l.name,email:l.email};save();refreshAdmin();adminPanel('Course activated',`<p><b>${l.name}</b> is now assigned to <b>${C.find(c=>c.id===id).title}</b>.</p>`)}}
+function assignTutor(){let opts=state.admin.learners.map((l,i)=>`<option value="${i}">${l.name}</option>`).join('');adminPanel('Assign tutor',`<div class="formgrid"><label>Learner<select id="atLearner">${opts}</select></label><label>Tutor<input id="atTutor" placeholder="Tutor name"></label></div><button class="cta" id="saveTutorAssign">Assign tutor</button>`);saveTutorAssign.onclick=()=>{let l=state.admin.learners[+atLearner.value];if(!l)return alert('Register a learner first.');let t=atTutor.value.trim();if(!t)return alert('Enter a tutor name.');l.tutor=t;save();refreshAdmin();adminPanel('Tutor assigned',`<p><b>${t}</b> has been assigned to <b>${l.name}</b>.</p>`)}}
+function reviewWork(){let learners=state.admin.learners;adminPanel('Review learner work',learners.length?learners.map(l=>`<article class="review-card"><h3>${l.name}</h3><p>${l.email} • Tutor: ${l.tutor||'Not assigned'}</p><p>Assigned courses: ${(l.courses||[]).map(id=>C.find(c=>c.id==id)?.title).join(', ')||'None'}</p><p>Support requests: ${(state.support||[]).filter(x=>!x.learnerEmail||x.learnerEmail===l.email).length}</p></article>`).join(''):'<p>No learners registered yet.</p>')}
+function adminEnquiries(){let q=state.enquiries||[];adminPanel('Enquiries',q.length?q.map((e,i)=>`<article class="review-card"><small>${new Date(e.createdAt).toLocaleString('en-GB')} • ${(e.status||'new').toUpperCase()}</small><h3>${esc(e.name)}</h3><p>${esc(e.email)}</p><p>${esc(e.question)}</p><div class="enquiry-actions"><button class="soft enquiryStatus" data-i="${i}" data-status="replied">Mark replied</button><button class="soft enquiryStatus" data-i="${i}" data-status="closed">Close</button></div></article>`).join(''):'<p>No enquiries have been recorded on this device yet. Once Appwrite is connected, the production admin view should read the central enquiry collection after secure admin sign-in.</p>');document.querySelectorAll('.enquiryStatus').forEach(b=>b.onclick=()=>{q[+b.dataset.i].status=b.dataset.status;save();adminEnquiries()})}
+function certificatesAdmin(){let passed=C.filter(c=>owned(c.id)&&cs(c.id).finalScore>=80);adminPanel('Certificates',passed.length?passed.map(c=>`<article class="review-card"><h3>${learnerName()}</h3><p>${c.title} • ${c.hours} CPD hours • Score ${cs(c.id).finalScore}%</p><button class="cta certGenerate" data-course="${c.id}">Preview / print certificate</button></article>`).join(''):'<p>No certificates are ready yet. A learner must complete the course and achieve at least 80%.</p>');document.querySelectorAll('.certGenerate').forEach(b=>b.onclick=()=>showCertificate(+b.dataset.course))}
+function certificateRef(id){let key=(state.profile?.email||learnerName())+'|'+id;let n=Math.abs(key.split('').reduce((a,x)=>((a<<5)-a)+x.charCodeAt(0),0));return `SST-${String(id).padStart(2,'0')}-${String(n).slice(0,7).padStart(7,'0')}`}
+function certificateMarkup(id){let c=C.find(x=>x.id===id),s=cs(id),attempt=s.attempts?.filter(a=>a.score>=80).slice(-1)[0],date=new Date(attempt?.date||Date.now()).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}),ref=certificateRef(id);return `<div class="certificate approved-cert" id="certificate"><div class="cert-corner cert-corner-left"></div><div class="cert-corner cert-corner-right"></div><div class="cert-top"><div class="cert-logo">SS</div><div class="cert-brand">SS TRAINING<small>BARBERING • CPD • DEVELOPMENT</small></div></div><div class="cert-motto">LEARN<br>DEVELOP<br>GROW</div><h1>CERTIFICATE</h1><p class="cert-kicker">OF CONTINUING PROFESSIONAL DEVELOPMENT</p><p class="cert-line">THIS IS TO CERTIFY THAT</p><h2 class="cert-name">${learnerName()}</h2><p class="cert-line">HAS SUCCESSFULLY COMPLETED</p><h3>${c.title}</h3><div class="cert-course-label">CPD COURSE</div><div class="cert-meta"><span><b>◷ ${c.hours}</b><small>CPD HOURS<br>ACHIEVED</small></span><span><b>▥ ${s.finalScore}%</b><small>FINAL ASSESSMENT<br>SCORE</small></span><span><b>▣ ${date}</b><small>COMPLETION<br>DATE</small></span><span><b>▤ ${ref}</b><small>CERTIFICATE<br>REFERENCE</small></span></div><div class="cert-bottom"><div class="cert-founder"><div class="cert-signature">Shane Spellacey</div><b>SHANE SPELLACEY</b><small>FOUNDER &amp; DIRECTOR<br>SS TRAINING</small></div><div class="cert-seal">SS<small>CPD</small></div><div class="cert-statement">PROFESSIONAL BARBERING EDUCATION<br>FOR REAL-WORLD SKILLS, CONFIDENCE<br>AND CAREER GROWTH.</div></div></div>`}
+function showCertificate(id){if(cs(id).finalScore<80)return alert('This certificate is locked until the learner achieves at least 80%.');adminPanel('Certificate preview',certificateMarkup(id)+`<div class="certificate-actions"><button class="cta" id="printCertificate">Print / Save as PDF</button></div>`);$('printCertificate').onclick=()=>window.print()}
+function showLearnerCertificate(id){if(cs(id).finalScore<80)return;let panel=$('portalPanel');panel.innerHTML=`<button class="soft" id="backCertificates">← Back to certificates</button>${certificateMarkup(id)}<div class="certificate-actions"><button class="cta" id="printCertificate">Print / Save as PDF</button></div>`;$('backCertificates').onclick=()=>portalPanel('cert');$('printCertificate').onclick=()=>window.print()}
+
+function wireAdminActions(){let map={registerLearner:registerLearner,assignCourse:assignCourse,assignTutor:assignTutor,reviewWork:reviewWork,adminEnquiries:adminEnquiries,adminCertificates:certificatesAdmin};Object.entries(map).forEach(([id,fn])=>{let el=document.getElementById(id);if(el)el.onclick=fn});refreshAdmin()}
+setTimeout(wireAdminActions,500);
