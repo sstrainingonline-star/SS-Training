@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Modern Fading & Seamless Blending",
     "tag": "Technical",
-    "price": 99,
+    "price": 49.5,
     "hours": 10,
     "desc": "Low, mid, high, taper and burst fades; guidelines, weight, transitions, detailing and head-shape control.",
     "modules": [
@@ -19,7 +19,7 @@
     "id": 2,
     "title": "Advanced Scissor Work & Precision Cutting",
     "tag": "Technical",
-    "price": 99,
+    "price": 49.5,
     "hours": 10,
     "desc": "Sectioning, elevation, graduation, layering, over-direction, scissor-over-comb, weight and texture.",
     "modules": [
@@ -35,7 +35,7 @@
     "id": 3,
     "title": "Afro Shaping & Textured Hair Techniques",
     "tag": "Texture",
-    "price": 109,
+    "price": 54.5,
     "hours": 10,
     "desc": "Texture, density, shrinkage, freehand shaping, tapers, line-ups, symmetry and maintenance.",
     "modules": [
@@ -51,7 +51,7 @@
     "id": 4,
     "title": "Beard Sculpting & Facial Design",
     "tag": "Grooming",
-    "price": 89,
+    "price": 44.5,
     "hours": 10,
     "desc": "Face shape, proportion, beard graduation, blending, symmetry, outlining and finishing.",
     "modules": [
@@ -67,7 +67,7 @@
     "id": 5,
     "title": "Modern Barbering Trends & Creative Cutting",
     "tag": "Creative",
-    "price": 89,
+    "price": 44.5,
     "hours": 10,
     "desc": "Reference analysis, modern shapes, hybrid cutting, texture, movement and creative finishing.",
     "modules": [
@@ -83,7 +83,7 @@
     "id": 6,
     "title": "Client Consultation & Barber Communication",
     "tag": "Client",
-    "price": 69,
+    "price": 34.5,
     "hours": 10,
     "desc": "Questioning, listening, reference images, expectations, difficult conversations and retention.",
     "modules": [
@@ -99,7 +99,7 @@
     "id": 7,
     "title": "Building Your Barbering Business",
     "tag": "Business",
-    "price": 79,
+    "price": 39.5,
     "hours": 10,
     "desc": "Pricing, value, capacity, diary productivity, rebooking, service development and business goals.",
     "modules": [
@@ -115,7 +115,7 @@
     "id": 8,
     "title": "Social Media & Personal Branding for Barbers",
     "tag": "Growth",
-    "price": 69,
+    "price": 34.5,
     "hours": 10,
     "desc": "Brand identity, haircut photography, short-form video, content planning, calls to action and enquiries.",
     "modules": [
@@ -131,7 +131,7 @@
     "id": 9,
     "title": "Community Engagement & Client Growth",
     "tag": "Community",
-    "price": 69,
+    "price": 34.5,
     "hours": 10,
     "desc": "Inclusive service, partnerships, referrals, outreach, events, follow-up and measuring engagement.",
     "modules": [
@@ -147,7 +147,7 @@
     "id": 10,
     "title": "Barber Productivity & Professional Development",
     "tag": "Professional",
-    "price": 69,
+    "price": 34.5,
     "hours": 10,
     "desc": "Workflow, time, quality, reflective practice, CPD records, goals and personal development.",
     "modules": [
@@ -157,6 +157,44 @@
       "Professional scenarios",
       "Reflection & evidence",
       "Closed-learning final assessment"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Modern Barber Teaching & Learner Engagement",
+    "hours": 5,
+    "price": 0,
+    "tag": "Teaching",
+    "desc": "Practical tutor skills: safeguarding awareness, inclusive teaching, clear demonstrations, engaging activities, useful feedback and learner progress.",
+    "modules": [
+      "Your role as a barber tutor",
+      "Safeguarding: notice and respond",
+      "Inclusive teaching and learner support",
+      "Demonstrations that learners can follow",
+      "Fun activities with a learning purpose",
+      "Practice, recall and confidence",
+      "Feedback and fair assessment",
+      "A safe, respectful learning environment",
+      "Plan your next teaching session"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Barbering Risks, Hazards & Health and Safety",
+    "hours": 2,
+    "price": 0,
+    "tag": "Safety",
+    "desc": "Everyday barbering safety: risk assessment, COSHH, hygiene, sharps, equipment, safe working, fire, first aid and incident reporting.",
+    "modules": [
+      "Responsibilities, hazards and risk assessment",
+      "COSHH, skin health and suitable PPE",
+      "Hygiene, infection prevention and waste",
+      "Razors, sharps and blood exposure",
+      "Electrical, thermal and equipment safety",
+      "Slips, trips, posture and handling",
+      "Fire prevention and evacuation",
+      "First aid, accidents and RIDDOR",
+      "Learners, clients and your safety action plan"
     ]
   }
 ]

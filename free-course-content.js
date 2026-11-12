@@ -1,0 +1,1224 @@
+Object.assign(window.SS_CONTENT, {
+  "11": {
+    "id": 11,
+    "title": "General Barber Tutor Training",
+    "short": "Teaching & Learner Engagement",
+    "hours": 5,
+    "price": 0,
+    "version": "2026-10-29.1",
+    "scope": "Introductory CPD for barber tutors and workplace mentors in England.",
+    "outcomes": [
+      "Recognise concerns and use the appropriate safeguarding route",
+      "Adapt teaching to learner needs",
+      "Plan clear demonstrations and purposeful activities",
+      "Use focused practice, feedback and fair checks",
+      "Create a practical teaching improvement plan"
+    ],
+    "modules": [
+      {
+        "title": "Your role as a barber tutor",
+        "minutes": 25,
+        "subtitle": "Set clear expectations. Make progress observable.",
+        "intro": "25 minutes: read and study the image (8), carry out the activity (10), then answer the check and write your reflection (7).",
+        "heading": "Your role as a barber tutor",
+        "body": [
+          "Being an experienced barber does not automatically make a demonstration easy for a beginner to follow. A tutor must turn expert decisions into visible steps, notice what learners can already do and make the next achievable step clear. This introductory CPD course helps you practise those teaching decisions. It is not a regulated teaching, assessor or safeguarding qualification.",
+          "Start by agreeing what the learner will demonstrate. “Understand consultation” is difficult to observe. “Ask three relevant questions, summarise the agreed style and check consent before selecting tools” gives both of you a useful target. Explain what successful work looks like and what must happen before practical work begins.",
+          "A short baseline conversation and a low-pressure task reveal more than assuming ability from age or confidence. Ask about previous practice, goals, language needs and support that has helped before. Observe a headblock sectioning task. A confident speaker may need help with hand control; a quiet learner may already have strong technical knowledge.",
+          "Be professional, predictable and respectful. Explain boundaries, attendance expectations, feedback arrangements and the route for concerns. Your roles include teaching, observing and signposting; they do not include diagnosing a disability, investigating abuse or promising a job or qualification result. Use agreed organisational communication channels.",
+          "Example: a learner says “I cannot fade.” Ask them to show how they establish a guideline on a headblock. If positioning is sound but the lever movement is uncontrolled, build the next practice around that one movement. Record the starting point so later progress is measured against evidence rather than impressions."
+        ],
+        "activity": "Spend 10 minutes creating a learner starting-point sheet with four headings: goal, evidence already seen, support requested, next observable step. Test it using a fictional new barber. Rewrite one vague aim as an action you can actually observe.",
+        "task": "Write at least 120 words explaining the starting point, one measurable learning outcome, how you will check it and the limits of your tutor role. Use fictional details only.",
+        "minWords": 120,
+        "quiz": {
+          "q": "Which outcome gives you the clearest evidence of learning?",
+          "a": [
+            "The learner enjoys consultation",
+            "The learner feels confident about clients",
+            "The learner asks relevant questions and confirms an agreed plan",
+            "The learner watches the tutor consult"
+          ],
+          "correct": 2,
+          "explain": "A visible action can be checked against clear criteria."
+        },
+        "image": "assets/free-courses/teaching-1.svg",
+        "imageAlt": "Teaching summary: Find the starting point; Agree an observable outcome; Check evidence of progress",
+        "takeaway": "Set clear expectations. Make progress observable.",
+        "points": [
+          "Find the starting point",
+          "Agree an observable outcome",
+          "Check evidence of progress"
+        ],
+        "video": "",
+        "sources": [
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback",
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"
+        ]
+      },
+      {
+        "title": "Safeguarding: notice and respond",
+        "minutes": 35,
+        "subtitle": "Notice concerns. Record facts. Follow the safeguarding route.",
+        "intro": "35 minutes: read and study the image (8), carry out the activity (20), then answer the check and write your reflection (7).",
+        "heading": "Safeguarding: notice and respond",
+        "body": [
+          "For this England-focused course, safeguarding includes protecting under-18s and responding appropriately to concerns about adult learners. Know your organisation’s designated safeguarding lead (DSL), deputy, emergency arrangements and escalation route before teaching. Read the safeguarding policy applicable to your setting. Schools and colleges should follow the current Keeping Children Safe in Education guidance; other providers must identify the duties applying to them.",
+          "Possible concerns include unexplained injuries, fear of a particular person, persistent hunger, a marked change in attendance, controlling relationships, sexual harassment, online threats or unexplained gifts linked to exploitation. One sign alone does not prove abuse. Record the context and seek advice rather than labelling a learner. Never dismiss child-on-child harassment as banter.",
+          "If a learner shares a concern, listen calmly and take it seriously. Do not promise secrecy, ask leading questions or investigate. Explain that information must be passed to the people who can help. Record the learner’s words, date, time, observations and your actions accurately, distinguishing fact from opinion. Report promptly through the safeguarding procedure. Do not confront the alleged abuser.",
+          "If someone is in immediate danger, contact emergency services on 999 and follow the emergency procedure. If the DSL is absent, use the deputy or escalation route; do not leave urgent concerns waiting. Anyone can make a referral to children’s social care where necessary. Concerns about staff require the specific allegations or low-level-concerns procedure, including an alternative route if the concern involves the lead.",
+          "Adult safeguarding routes differ from child protection. Seek the adult’s views, consider immediate risk and follow the adult safeguarding policy and local authority route where appropriate. Do not automatically contact an adult learner’s family. Prevent concerns should be handled proportionately through the safeguarding lead: religion, ethnicity or lawful disagreement are not evidence of radicalisation. Focus on behaviour and context, including support for terrorist violence.",
+          "For coursework, use fictional scenarios only. Real disclosures belong in the approved secure safeguarding system, never a course reflection, public portfolio or group chat. Before delivery, identify the current local reporting contacts and ensure staff receive role-appropriate safeguarding training beyond this introductory module."
+        ],
+        "activity": "Spend 20 minutes on this fictional case: a 17-year-old stops attending regularly and says an older acquaintance controls their earnings and threatens them. Write a factual concern note, your first response, who you would contact and the backup route if the DSL is unavailable. Then identify which details must not enter a public learning portfolio.",
+        "task": "In at least 120 words explain what you would say, record and report in the fictional case, what you would avoid doing, and what changes if there is immediate danger.",
+        "minWords": 120,
+        "quiz": {
+          "q": "A 17-year-old discloses threatening behaviour. What is the best response?",
+          "a": [
+            "Promise secrecy to keep their trust",
+            "Listen, explain the limits of confidentiality and promptly follow the safeguarding procedure",
+            "Question the suspected person yourself",
+            "Wait for proof before recording anything"
+          ],
+          "correct": 1,
+          "explain": "The tutor listens and escalates; they do not investigate or promise secrecy."
+        },
+        "image": "assets/free-courses/teaching-2.svg",
+        "imageAlt": "Teaching summary: Notice and listen; Record facts securely; Report and escalate promptly",
+        "takeaway": "Notice concerns. Record facts. Follow the safeguarding route.",
+        "points": [
+          "Notice and listen",
+          "Record facts securely",
+          "Report and escalate promptly"
+        ],
+        "video": "",
+        "sources": [
+          "https://www.gov.uk/government/publications/keeping-children-safe-in-education--2",
+          "https://learning.nspcc.org.uk/child-abuse-and-neglect/recognising-and-responding-to-abuse"
+        ]
+      },
+      {
+        "title": "Inclusive teaching and learner support",
+        "minutes": 30,
+        "subtitle": "Adapt the route while keeping the learning goal clear.",
+        "intro": "30 minutes: read and study the image (8), carry out the activity (15), then answer the check and write your reflection (7).",
+        "heading": "Inclusive teaching and learner support",
+        "body": [
+          "Learners can encounter barriers involving reading, hearing, attention, anxiety, language, sensory load or previous experiences of education. Ask privately what helps and check the effect of any adjustment. Do not infer a diagnosis from behaviour or group learners into fixed ability categories.",
+          "Use clear language, a short glossary and photographs with labels positioned beside the relevant detail. Explain terms such as elevation using a demonstration and a plain-language description. Present one instruction at a time when needed, allow processing time and ask the learner to explain the next step. A nod is not evidence that the instruction was understood.",
+          "Example: a learner misses instructions while clippers are running. Reduce background noise for explanations, face the learner and provide a written step card. Check that they can still receive safety instructions during practical work. Discuss further support through the agreed route instead of assuming they are careless.",
+          "Offer a predictable lesson structure, accessible text size, strong contrast and an uncluttered workspace. Temporary prompts can support independent work, then be reduced when the learner is ready. A learner who needs more time to read may still meet the same technical standard. Change access arrangements thoughtfully without silently removing the competence being assessed.",
+          "Avoid using a visual, auditory or kinaesthetic label as a fixed prescription. Combine relevant explanation, images, practice and checks according to the task and observed barriers. School-based evidence on explicit teaching and scaffolding offers useful principles, but applying it to adult barber training is a professional adaptation, not a guarantee of the same results.",
+          "The Equality Act 2010 protects disabled learners from discrimination. Education providers must consider reasonable adjustments to avoid disadvantage. Agree appropriate support with the learner and follow the relevant assessment arrangements; do not assume an EHCP or a diagnosis must be available before discussing support."
+        ],
+        "activity": "Spend 15 minutes adapting one consultation activity for three fictional needs: difficulty hearing in noise, reading unfamiliar terminology and anxiety about speaking in a group. For each, retain the same consultation outcome and choose one way to check whether the support worked.",
+        "task": "Write at least 120 words about one adaptation, the learner’s input, the standard you retain, how you check impact and when you will review the support.",
+        "minWords": 120,
+        "quiz": {
+          "q": "A learner struggles to read a dense consultation sheet. What should you do first?",
+          "a": [
+            "Lower all assessment standards",
+            "Label them a visual learner",
+            "Ask about the barrier and trial a clearer supported format",
+            "Ask another student to complete it for them"
+          ],
+          "correct": 2,
+          "explain": "Adapt access with the learner and check the effect while preserving the intended outcome."
+        },
+        "image": "assets/free-courses/teaching-3.svg",
+        "imageAlt": "Teaching summary: Ask about the barrier; Trial a useful adjustment; Review its effect",
+        "takeaway": "Adapt the route while keeping the learning goal clear.",
+        "points": [
+          "Ask about the barrier",
+          "Trial a useful adjustment",
+          "Review its effect"
+        ],
+        "video": "",
+        "sources": [
+          "https://www.gov.uk/rights-disabled-person/education-rights",
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/supporting-high-quality-teaching-for-pupils-with-send"
+        ]
+      },
+      {
+        "title": "Demonstrations that learners can follow",
+        "minutes": 35,
+        "subtitle": "Show the decision as well as the movement.",
+        "intro": "35 minutes: read and study the image (8), carry out the activity (20), then answer the check and write your reflection (7).",
+        "heading": "Demonstrations that learners can follow",
+        "body": [
+          "Plan a demonstration around one small outcome, such as controlled clipper movement at a guideline. Check the learner’s view, lighting, tool safety and working position. A full-speed complete haircut can hide the very decisions a novice needs to understand.",
+          "Show a short sequence, explain your reasoning and pause at a decision point. For example: “I can see weight here. I am checking the angle before removing more hair.” Ask what the learner notices and what they would check next. Avoid talking through several unrelated techniques while your hands perform something else.",
+          "Use an image sequence with three to five clearly labelled steps. Include the starting position, the key movement and the visible result. Add a caption explaining why the action is chosen. Images should support a practical demonstration or rehearsal; a photograph alone cannot prove tool competence.",
+          "Move from tutor demonstration to guided learner practice, then to a short independent attempt. Keep early practice on an appropriate headblock or safe simulation until the learner is ready for supervised client work. Agree an immediate stop signal and intervene if safe practice breaks down.",
+          "Watch for a specific error, give one useful cue and allow a retry. Repeating the whole demonstration at the same pace may not help. If the learner cannot coordinate two movements, separate them and reconnect them later. Reduce prompts as control improves so the learner does not become dependent on you."
+        ],
+        "activity": "Spend 20 minutes scripting a five-step mini-demonstration. Draw or photograph a safe headblock sequence; annotate the decision in each frame. Rehearse the explanation aloud, include two pause questions and plan how a learner will practise the movement independently.",
+        "task": "Write at least 120 words describing the demonstration, its safety boundary, your think-aloud explanation, guided practice and the evidence needed before reducing support.",
+        "minWords": 120,
+        "quiz": {
+          "q": "A beginner loses track during a long demonstration. What is most useful?",
+          "a": [
+            "Repeat it faster",
+            "Break it into short steps with explanation and guided practice",
+            "Tell them to copy without questions",
+            "Move straight to an unsupervised client"
+          ],
+          "correct": 1,
+          "explain": "Short steps and supported practice make the technique and reasoning easier to inspect."
+        },
+        "image": "assets/free-courses/teaching-4.svg",
+        "imageAlt": "Teaching summary: Model a small step; Guide a safe attempt; Check independent practice",
+        "takeaway": "Show the decision as well as the movement.",
+        "points": [
+          "Model a small step",
+          "Guide a safe attempt",
+          "Check independent practice"
+        ],
+        "video": "",
+        "sources": [
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback",
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"
+        ]
+      },
+      {
+        "title": "Fun activities with a learning purpose",
+        "minutes": 30,
+        "subtitle": "Make the activity enjoyable and the learning visible.",
+        "intro": "30 minutes: read and study the image (8), carry out the activity (15), then answer the check and write your reflection (7).",
+        "heading": "Fun activities with a learning purpose",
+        "body": [
+          "A game earns its place when it helps learners practise a specific skill or reveal a misconception. State the learning outcome before choosing the game. Fast responses and high scores are not the same as understanding. Build in thinking time, accessible participation and a short debrief.",
+          "Activity 1 — Spot the mistake: use a tutor-created, staged photograph of a workstation. Learners identify three issues, explain a consequence and propose a correction. Do not create real hazards to take the picture. Accept written or spoken contributions and ask learners to justify their choices.",
+          "Activity 2 — Consultation cards: one person plays a fictional client, one the barber and one observes against three agreed criteria. Rotate roles. The observer records evidence of listening, clarification and agreement. Keep scenarios respectful; do not ask anyone to reveal personal health or safeguarding experiences.",
+          "Activity 3 — Sequence challenge: provide shuffled picture cards showing safe preparation or sectioning. Learners order them and explain a disputed step. Give credit for the reasoning. Follow with an individual question so you can see whether each person understands rather than relying on the strongest group member.",
+          "Activity 4 — Guess the tool or guard: identify a tool from a picture and explain its purpose and limitations. Check manufacturer-specific information where relevant. Never turn speed cutting, razor handling or unsafe imitation into a competition. Offer a cooperative version if competitive scoring makes participation harder.",
+          "Finish with “What changed in your understanding?” and one transfer question about a new client or headblock. If the activity was lively but nobody can explain the intended principle, simplify it and reteach that principle."
+        ],
+        "activity": "Spend 15 minutes designing an eight-minute activity plus a two-minute debrief. Specify the outcome, materials, instructions, safe boundaries, an inclusive participation option and an individual exit question. Trial the instructions yourself for ambiguity.",
+        "task": "Write at least 120 words explaining your activity and how you will distinguish enjoyment from evidence of learning. Include one adaptation and one safety rule.",
+        "minWords": 120,
+        "quiz": {
+          "q": "Which sign best shows that a learning game worked?",
+          "a": [
+            "The room was noisy",
+            "The fastest team won",
+            "Everybody said it was fun",
+            "Each learner can explain and apply the target principle"
+          ],
+          "correct": 3,
+          "explain": "Enjoyment supports participation, but the individual application check reveals learning."
+        },
+        "image": "assets/free-courses/teaching-5.svg",
+        "imageAlt": "Teaching summary: Choose the learning goal; Play safely and inclusively; Check individual understanding",
+        "takeaway": "Make the activity enjoyable and the learning visible.",
+        "points": [
+          "Choose the learning goal",
+          "Play safely and inclusively",
+          "Check individual understanding"
+        ],
+        "video": "",
+        "sources": [
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback",
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"
+        ]
+      },
+      {
+        "title": "Practice, recall and confidence",
+        "minutes": 30,
+        "subtitle": "Build reliable performance through focused repetition.",
+        "intro": "30 minutes: read and study the image (8), carry out the activity (15), then answer the check and write your reflection (7).",
+        "heading": "Practice, recall and confidence",
+        "body": [
+          "Choose a narrow practice target and make the success criteria visible. Practising a full haircut repeatedly without identifying the problem can reinforce an error. On a headblock, a learner might practise section consistency, inspect the result and adjust one action before repeating.",
+          "Use a short recall activity before returning to a previous skill. Ask learners to reconstruct a preparation sequence without looking at the step card, then check and correct it. Keep early recall low stakes so mistakes become information for teaching rather than public embarrassment.",
+          "Revisit key ideas across sessions instead of covering them once and assuming they are secure. For example, ask a consultation question at the next lesson and use a different fictional client later. Plan a mix of recap, practice and application; judge the challenge by what the learner can actually do.",
+          "Help learners plan, monitor and evaluate their approach. Ask: “What is the target? What will you check as you work? What would you change next time?” Model your own checks, then ask the learner to use them. The aim is to build self-correction, not simply confidence in asking the tutor for every answer.",
+          "Praise a specific strategy or improvement: “You checked the section width before cutting and kept it consistent.” Avoid comparisons with the fastest student or fixed labels such as “naturally talented.” Progress can vary; use observable evidence and a manageable next step rather than promises that everyone will learn quickly."
+        ],
+        "activity": "Spend 15 minutes planning three short practice sessions for sectioning: an initial supported attempt, a later recall-and-retry session and a transfer task on a different head shape. Write a criterion and a self-check question for each session.",
+        "task": "Write at least 120 words about the practice sequence, when you will revisit it, how you will support confidence and what independent evidence would show improvement.",
+        "minWords": 120,
+        "quiz": {
+          "q": "Which practice plan is most likely to reveal durable understanding?",
+          "a": [
+            "Repeat a whole haircut without feedback",
+            "Revisit a focused skill, check errors and apply it in a new situation",
+            "Read the same note once",
+            "Rely on how confident the learner sounds"
+          ],
+          "correct": 1,
+          "explain": "Focused, revisited practice and transfer checks provide stronger evidence than confidence alone."
+        },
+        "image": "assets/free-courses/teaching-6.svg",
+        "imageAlt": "Teaching summary: Plan the attempt; Monitor the result; Evaluate and revisit",
+        "takeaway": "Build reliable performance through focused repetition.",
+        "points": [
+          "Plan the attempt",
+          "Monitor the result",
+          "Evaluate and revisit"
+        ],
+        "video": "",
+        "sources": [
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback",
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"
+        ]
+      },
+      {
+        "title": "Feedback and fair assessment",
+        "minutes": 30,
+        "subtitle": "Give a next action, then time to use it.",
+        "intro": "30 minutes: read and study the image (8), carry out the activity (15), then answer the check and write your reflection (7).",
+        "heading": "Feedback and fair assessment",
+        "body": [
+          "Explain the criteria before assessing. A learner cannot use feedback effectively if “good” has never been defined. Gather evidence through observation, questions and the finished result, rather than judging effort, confidence or personality.",
+          "Useful feedback connects an observation to an improvement. “That was untidy” gives little direction. “Your rear sections vary in width; use the guide to check the next three sections before cutting” gives a practical action. Ask the learner to explain the action back and provide time for a new attempt.",
+          "Prioritise. A novice given eight corrections at once may not know where to start. Address immediate safety first, then choose the error most relevant to the current learning goal. Notice what is already successful so the learner does not unnecessarily change it.",
+          "Use formative checks to decide what to teach next. If most learners choose the same wrong answer, inspect the wording and reteach the misconception. If one learner needs support, provide a targeted prompt and recheck. A final multiple-choice pass shows knowledge within the questions sampled, not full practical competence.",
+          "Written reflections in this course are required learning evidence. The software checks that a response exists and meets the word count; that is not an expert judgement of its quality. Use a tutor review process when qualitative approval is required. For regulated qualifications, follow the awarding organisation’s assessment and reasonable-adjustment rules rather than treating this CPD certificate as an assessor award."
+        ],
+        "activity": "Spend 15 minutes rewriting three comments: “Be more professional”, “Your blend is poor” and “You need to work faster”. For each, invent an observable finding, give one specific next action and specify what evidence you will check after the retry.",
+        "task": "Write at least 120 words giving a feedback example, the criterion it relates to, time for improvement and how you will check the response fairly.",
+        "minWords": 120,
+        "quiz": {
+          "q": "Which feedback is most actionable?",
+          "a": [
+            "You are not a natural",
+            "Try harder next lesson",
+            "Check the next three section widths against your guide, then show me the result",
+            "Everyone else finished sooner"
+          ],
+          "correct": 2,
+          "explain": "It identifies an observable action and a clear follow-up check."
+        },
+        "image": "assets/free-courses/teaching-7.svg",
+        "imageAlt": "Teaching summary: Observe against criteria; Give one useful action; Allow a retry and recheck",
+        "takeaway": "Give a next action, then time to use it.",
+        "points": [
+          "Observe against criteria",
+          "Give one useful action",
+          "Allow a retry and recheck"
+        ],
+        "video": "",
+        "sources": [
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback",
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"
+        ]
+      },
+      {
+        "title": "A safe, respectful learning environment",
+        "minutes": 30,
+        "subtitle": "Protect safety, dignity and professional boundaries.",
+        "intro": "30 minutes: read and study the image (8), carry out the activity (15), then answer the check and write your reflection (7).",
+        "heading": "A safe, respectful learning environment",
+        "body": [
+          "Good routines reduce avoidable disruption. Explain preparation, cleaning, tool storage, supervision and how to pause safely. Demonstrate the routine and check it before a learner works with a client. Follow local risk assessments and manufacturers’ instructions for equipment and products.",
+          "Never reward speed at the expense of safe tool handling. If unsafe practice occurs, stop the activity, secure equipment and explain the next safe step. A headblock, a tool switched off or a paper scenario may be appropriate for early rehearsal. Restore practical work only when the relevant safety control is in place.",
+          "Agree respectful communication and challenge discriminatory remarks or humiliating jokes consistently. Describe the behaviour and its effect; avoid public arguments about a learner’s character. A quiet check-in can help you understand a barrier, but threatening or safeguarding concerns must follow the appropriate route.",
+          "Example: a learner becomes frustrated and leaves the workstation while tools are running. Make the area safe and follow the agreed supervision procedure. When calm, discuss what happened, the trigger and a safer pause routine. Record facts and arrange support as appropriate; do not assume defiance explains every incident.",
+          "Use approved channels for communication and authorised arrangements for one-to-one teaching. Obtain appropriate permission before taking or sharing learner or client images and follow your organisation’s retention rules. Crop or anonymise teaching examples where possible. Do not upload identifiable safeguarding records, client health details or another learner’s work into this course.",
+          "A tutor also needs realistic boundaries. Know who handles welfare, attendance, assessment appeals and safeguarding. Escalate concerns you cannot resolve and keep a factual record. Seeking support is a professional action, not a failure to manage the group."
+        ],
+        "activity": "Spend 15 minutes making a one-page lesson-start routine: environment, equipment, consent, supervision and communication. Then write a calm response to a fictional disruptive incident, separating immediate safety, later discussion and any escalation needed.",
+        "task": "Write at least 120 words explaining a safe routine, a respectful behaviour response, when you would escalate and how you would protect image privacy.",
+        "minWords": 120,
+        "quiz": {
+          "q": "A learner uses equipment unsafely during a timed challenge. What should happen first?",
+          "a": [
+            "Let them finish to avoid embarrassment",
+            "Stop and make the situation safe",
+            "Deduct a point and continue",
+            "Ask another learner to take over without supervision"
+          ],
+          "correct": 1,
+          "explain": "Immediate safety takes priority over the activity or competition."
+        },
+        "image": "assets/free-courses/teaching-8.svg",
+        "imageAlt": "Teaching summary: Set predictable routines; Pause unsafe practice; Protect dignity and privacy",
+        "takeaway": "Protect safety, dignity and professional boundaries.",
+        "points": [
+          "Set predictable routines",
+          "Pause unsafe practice",
+          "Protect dignity and privacy"
+        ],
+        "video": "",
+        "sources": [
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback",
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"
+        ]
+      },
+      {
+        "title": "Plan your next teaching session",
+        "minutes": 25,
+        "subtitle": "Turn the course into one practical improvement.",
+        "intro": "25 minutes: read and study the image (8), carry out the activity (10), then answer the check and write your reflection (7).",
+        "heading": "Plan your next teaching session",
+        "body": [
+          "Build a short session around a learner need you can describe. Select one achievable outcome and the evidence that will show it has been met. Choose the explanation, image and activity that directly support that outcome, rather than trying to include every technique from this course.",
+          "Example 30-minute session: three minutes to recall the last lesson, five minutes for a short demonstration, ten minutes of guided headblock practice, seven minutes for independent practice and feedback, then five minutes for a written exit check and next target. Adjust this to the learners and safe supervision available.",
+          "Plan adaptations before the session. Prepare a plain-language step card, an extension question for someone ready to progress and a supported route for someone who needs more practice. Check safeguarding contacts, equipment and the image permissions. Decide what you will do if your assessment check reveals a common misunderstanding.",
+          "After teaching, compare learner evidence with the intended outcome. Ask for one useful comment about what helped and what was confusing. Note a specific change for your next session. A professional development plan can be small: trial one demonstration change, observe its effect over two sessions and discuss the findings with a colleague.",
+          "The final assessment contains 20 multiple-choice questions with an 80% pass mark: 16 correct answers. Complete all nine checks and written tasks first. You may review the course and retake after an unsuccessful attempt. Your certificate records completion of this introductory course with five CPD hours of planned learning; it does not confer a regulated teaching or safeguarding qualification."
+        ],
+        "activity": "Spend 10 minutes assembling a session plan with timing, outcome, image, explanation, activity, adaptation, assessment and follow-up. Use your earlier module responses to make it specific. Check that the minutes add up and that independent evidence is collected.",
+        "task": "Write at least 120 words describing the session you will deliver, one change you will trial and how you will evaluate its effect. Confirm that you have carried out the course activities; record your actual learning time in your own CPD log.",
+        "minWords": 120,
+        "quiz": {
+          "q": "What makes your improvement plan useful?",
+          "a": [
+            "A promise to become a better tutor",
+            "A long list of unrelated activities",
+            "Repeating the same lesson indefinitely",
+            "A specific change, evidence to collect and a review date"
+          ],
+          "correct": 3,
+          "explain": "An actionable change and planned review turn reflection into improvement."
+        },
+        "image": "assets/free-courses/teaching-9.svg",
+        "imageAlt": "Teaching summary: Plan an achievable session; Collect learner evidence; Review one teaching change",
+        "takeaway": "Turn the course into one practical improvement.",
+        "points": [
+          "Plan an achievable session",
+          "Collect learner evidence",
+          "Review one teaching change"
+        ],
+        "video": "",
+        "sources": [
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback",
+          "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"
+        ]
+      }
+    ],
+    "assessmentSettings": {
+      "questionsPerAttempt": 20,
+      "passPercent": 80,
+      "minutes": 30
+    },
+    "notice": "Five planned CPD hours. Introductory development, not a regulated teaching or safeguarding qualification.",
+    "final": [
+      {
+        "q": "Which starting point best supports a new learner?",
+        "a": [
+          "Assume skill from confidence",
+          "Observe a short task and discuss goals and support",
+          "Give the same advanced task to everyone",
+          "Skip the baseline to save time"
+        ],
+        "correct": 1,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "Which outcome can be observed?",
+        "a": [
+          "Enjoy the lesson",
+          "Know everything about consultation",
+          "Ask relevant questions and confirm the agreed plan",
+          "Become naturally talented"
+        ],
+        "correct": 2,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "A 17-year-old shares a concern about abuse. What should the tutor do?",
+        "a": [
+          "Promise secrecy",
+          "Investigate the accused person",
+          "Wait for proof",
+          "Listen, record accurately and follow the safeguarding route promptly"
+        ],
+        "correct": 3,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "Someone is in immediate danger. What takes priority?",
+        "a": [
+          "Contact emergency services and follow the emergency procedure",
+          "Wait until the next scheduled review",
+          "Finish the course paperwork",
+          "Ask the group to investigate"
+        ],
+        "correct": 0,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "Which detail belongs in a factual safeguarding record?",
+        "a": [
+          "An unsupported diagnosis",
+          "The learner’s exact words, observations, time and actions taken",
+          "A rumour presented as fact",
+          "The tutor’s guess stated as certainty"
+        ],
+        "correct": 1,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "What is appropriate when considering a Prevent concern?",
+        "a": [
+          "Treat a religion as evidence of risk",
+          "Automatically report every disagreement",
+          "Consider specific behaviour and context with the safeguarding lead",
+          "Ignore explicit support for terrorist violence"
+        ],
+        "correct": 2,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "A learner struggles to hear instructions over equipment. What helps?",
+        "a": [
+          "Repeat from the other side of the room",
+          "Assume poor motivation",
+          "Remove all safety checks",
+          "Reduce noise, face them, provide clear steps and check understanding"
+        ],
+        "correct": 3,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "Which is an inclusive teaching decision?",
+        "a": [
+          "Agree and evaluate an adjustment while retaining the learning outcome",
+          "Assign a fixed learning-style label",
+          "Lower every standard without discussion",
+          "Ask peers to do the work"
+        ],
+        "correct": 0,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "What should a short demonstration make visible?",
+        "a": [
+          "Only the final result",
+          "The movement and the reasoning behind it",
+          "Every advanced technique at once",
+          "The tutor’s speed"
+        ],
+        "correct": 1,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "When should prompts be reduced?",
+        "a": [
+          "Before any explanation",
+          "Only after the course ends",
+          "As evidence shows the learner can perform more independently",
+          "Never"
+        ],
+        "correct": 2,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "What is the strongest learning check after a game?",
+        "a": [
+          "How loud the group was",
+          "Which team finished first",
+          "Whether everyone smiled",
+          "An individual explanation or application of the target principle"
+        ],
+        "correct": 3,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "Which competition is suitable for early learning?",
+        "a": [
+          "Ordering preparation picture cards and explaining the order",
+          "Speed shaving on a client",
+          "Handling sharps as fast as possible",
+          "Working without supervision for bonus points"
+        ],
+        "correct": 0,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "Which practice plan supports self-correction?",
+        "a": [
+          "Repeat mistakes until the lesson ends",
+          "Set a focus, inspect the result, adjust and revisit the skill",
+          "Copy without checking",
+          "Avoid later recall"
+        ],
+        "correct": 1,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "Which question encourages monitoring during practice?",
+        "a": [
+          "Are you naturally good at this?",
+          "Who is fastest?",
+          "What evidence tells you this section meets the criterion?",
+          "Can you finish before everyone else?"
+        ],
+        "correct": 2,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "Which feedback is most useful?",
+        "a": [
+          "Be better",
+          "You are untalented",
+          "Try harder",
+          "Check the next three section widths against the guide and show me"
+        ],
+        "correct": 3,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "What does a multiple-choice CPD pass establish?",
+        "a": [
+          "Knowledge demonstrated on the sampled questions, not full practical competence",
+          "A regulated teaching qualification",
+          "Permission to assess every qualification",
+          "Proof that every practical skill is safe"
+        ],
+        "correct": 0,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "Unsafe equipment use occurs. What should the tutor do first?",
+        "a": [
+          "Allow the challenge to finish",
+          "Stop and make the situation safe",
+          "Deduct points only",
+          "Ignore it if the learner is confident"
+        ],
+        "correct": 1,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "Which image is suitable for a course reflection?",
+        "a": [
+          "A confidential safeguarding record",
+          "An identifiable client’s health notes",
+          "An authorised, appropriately anonymised teaching example",
+          "A classmate’s private message"
+        ],
+        "correct": 2,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "Which plan is most useful for improving your teaching?",
+        "a": [
+          "Try harder at everything",
+          "Collect activities without a goal",
+          "Never change the lesson",
+          "Trial one change, collect evidence and set a review date"
+        ],
+        "correct": 3,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      },
+      {
+        "q": "A lesson check reveals a common misunderstanding. What next?",
+        "a": [
+          "Reteach the point and check again",
+          "Blame the learners",
+          "Ignore it because the activity was fun",
+          "Issue certificates anyway"
+        ],
+        "correct": 0,
+        "explain": "Apply the teaching principle covered in the relevant module."
+      }
+    ]
+  },
+  "12": {
+    "short": "Risks, Hazards & Safety",
+    "outcomes": [
+      "Identify common barbering hazards and practical controls",
+      "Use COSHH, hygiene and sharps procedures",
+      "Recognise unsafe equipment and working conditions",
+      "Explain fire, first-aid and reporting arrangements",
+      "Create a safety action plan for learners and clients"
+    ],
+    "modules": [
+      {
+        "title": "Responsibilities, hazards and risk assessment",
+        "subtitle": "Recognise the risk. Choose a practical control.",
+        "intro": "15 minutes including reading, the scenario activity, quick check and written response.",
+        "heading": "Responsibilities, hazards and risk assessment",
+        "body": [
+          "This two-hour course is a practical introduction for barbershops and training settings in England. It covers the main everyday risks; it does not replace a premises-specific risk assessment, practical first-aid training or competent specialist advice. Health and safety law also applies across Great Britain, while some fire, waste and safeguarding arrangements differ by nation.",
+          "The Health and Safety at Work etc. Act 1974 sets general duties to protect employees and others affected by work. Workers must take reasonable care and cooperate with safety arrangements. Under the Management of Health and Safety at Work Regulations 1999, employers must assess and control risks. A hazard can cause harm; risk considers the likelihood and seriousness of that harm.",
+          "Look at the work actually done: services, cleaning, opening, closing, deliveries and training. Include clients, visitors, learners, contractors and people needing particular support. Identify the hazard, who might be harmed, existing controls, further action, an owner and a review date. Remove the hazard where possible; otherwise reduce exposure before relying on instructions or PPE.",
+          "Employers with five or more employees must record significant risk-assessment findings. Smaller businesses still need to assess and control risks, even where that specific recording requirement does not apply. A short written record is useful. Review when equipment, products, staff needs or procedures change, or after an incident. Fire risk assessment has separate recording requirements covered later."
+        ],
+        "activity": "Study a fictional shop with a trailing lead, wet entrance and uncovered blade. Spend five minutes choosing the most urgent action and drafting one risk-assessment row.",
+        "task": "In at least 60 words, identify one hazard, who could be harmed, the control, who will act and when you will check it.",
+        "minWords": 60,
+        "quiz": {
+          "q": "Which is the strongest first control for a trailing extension lead?",
+          "a": [
+            "Put up a warning and leave it",
+            "Remove or reroute the lead away from the walkway",
+            "Tell clients to step over it",
+            "Wait for an accident"
+          ],
+          "correct": 1,
+          "explain": "Removing the trip hazard is stronger than relying only on warnings."
+        },
+        "points": [
+          "Identify harm and people at risk",
+          "Remove or reduce the risk",
+          "Assign action and review"
+        ],
+        "takeaway": "Assign action and review",
+        "video": "",
+        "image": "assets/free-courses/safety-1.svg",
+        "imageAlt": "Safety summary: Identify harm and people at risk; Remove or reduce the risk; Assign action and review",
+        "sources": [
+          "https://www.hse.gov.uk/risk/index.htm",
+          "https://www.legislation.gov.uk/uksi/1999/3242/regulation/3",
+          "https://www.hse.gov.uk/legislation/hswa.htm"
+        ],
+        "minutes": 15
+      },
+      {
+        "title": "COSHH, skin health and suitable PPE",
+        "subtitle": "Recognise the risk. Choose a practical control.",
+        "intro": "15 minutes including reading, the scenario activity, quick check and written response.",
+        "heading": "COSHH, skin health and suitable PPE",
+        "body": [
+          "COSHH means the Control of Substances Hazardous to Health Regulations 2002. Assess actual exposure from products, disinfectants, aerosols and repeated wet work. A safety data sheet supplies information; it is not a completed assessment of how your shop uses a substance. Check the task, quantity, dilution, ventilation, exposure route and people at risk.",
+          "Frequent washing and contact with shampoo can damage the skin. Some products cause allergies or breathing problems. Choose less hazardous products or methods where practicable, limit exposure and provide ventilation. Follow labels and safety data sheets, store products securely in labelled containers and never mix cleaning chemicals.",
+          "Choose gloves and other protection suitable for the chemical and task, including breakthrough time and fit. HSE recommends disposable non-latex gloves for relevant wet hairdressing work; change them between clients and when damaged or contaminated. Gloves do not replace hand hygiene. Dry hands well, use suitable moisturiser and report persistent soreness, cracking or breathing symptoms promptly for appropriate assessment.",
+          "Required workplace PPE must be provided without charging covered workers. The PPE at Work Regulations 1992 were extended in 2022 to specified limb (b) workers; substance-related protection is also governed by COSHH. Train people to use, remove and store protection correctly. Do not use a client skin test as a substitute for controlling workers’ exposure."
+        ],
+        "activity": "Spend five minutes examining the label and safety data sheet of a product you use, without mixing or applying it. Identify two exposure routes and one better control than simply adding gloves.",
+        "task": "In at least 60 words, describe the task, exposure, safer method, suitable protection and action if symptoms develop. Use no client health details.",
+        "minWords": 60,
+        "quiz": {
+          "q": "Is a product safety data sheet the same as your COSHH assessment?",
+          "a": [
+            "Yes, if filed away",
+            "Yes, if the product is expensive",
+            "No: assess the way the product is actually used and exposure controlled",
+            "No assessment is needed for cleaning products"
+          ],
+          "correct": 2,
+          "explain": "The assessment applies hazard information to the real task and exposure."
+        },
+        "points": [
+          "Assess actual exposure",
+          "Control wet work and chemicals",
+          "Use suitable PPE correctly"
+        ],
+        "takeaway": "Use suitable PPE correctly",
+        "video": "",
+        "image": "assets/free-courses/safety-2.svg",
+        "imageAlt": "Safety summary: Assess actual exposure; Control wet work and chemicals; Use suitable PPE correctly",
+        "sources": [
+          "https://www.hse.gov.uk/COSHH/industry/hairdressing.htm",
+          "https://www.hse.gov.uk/ppe/ppe-regulations-2022.htm",
+          "https://www.hse.gov.uk/coshh/basics/assessment.htm"
+        ],
+        "minutes": 15
+      },
+      {
+        "title": "Hygiene, infection prevention and waste",
+        "subtitle": "Recognise the risk. Choose a practical control.",
+        "intro": "15 minutes including reading, the scenario activity, quick check and written response.",
+        "heading": "Hygiene, infection prevention and waste",
+        "body": [
+          "Prevent transfer of contamination through hands, shared tools, towels and work surfaces. Organise clean and used equipment separately. Perform hand hygiene at appropriate points, use clean linen for each client, and clean contact surfaces and tools between clients according to the service risk and manufacturer’s instructions.",
+          "Cleaning removes debris. Disinfection reduces microorganisms to the level achieved by the specified product and method. Sterilisation is a different validated process. A storage cabinet or quick spray should not be described as sterilising equipment unless the validated process genuinely achieves that outcome. Remove hair and debris before disinfecting; use the correct concentration and full contact time.",
+          "Use single-use items once only. Follow equipment compatibility guidance and isolate electrical tools safely before cleaning. If a client presents with a possible infectious condition, do not diagnose it; explain why you may need to postpone or adapt the service and follow the shop’s referral and hygiene procedure.",
+          "Segregate ordinary waste, chemical waste and sharps appropriately. Never put loose blades into a general bin or recycling. The Environmental Protection Act 1990 waste duty of care requires responsible handling and transfer. Use an authorised collector and appropriate documentation; agree classification of contaminated waste with the competent waste contractor rather than assuming all salon waste has the same classification."
+        ],
+        "activity": "Spend five minutes mapping a clean-to-used equipment route for one haircut. Identify where hands or a towel might transfer contamination and how you will stop that transfer.",
+        "task": "In at least 60 words, describe the route, the difference between cleaning and disinfection, and the correct waste arrangements for your example.",
+        "minWords": 60,
+        "quiz": {
+          "q": "What must happen before disinfecting a visibly dirty reusable tool?",
+          "a": [
+            "Store it immediately",
+            "Remove hair and debris using the approved cleaning method",
+            "Use a shorter contact time",
+            "Call every treatment sterilisation"
+          ],
+          "correct": 1,
+          "explain": "Cleaning enables the intended disinfection process to work."
+        },
+        "points": [
+          "Separate clean and used items",
+          "Follow method and contact time",
+          "Segregate and transfer waste safely"
+        ],
+        "takeaway": "Segregate and transfer waste safely",
+        "video": "",
+        "image": "assets/free-courses/safety-3.svg",
+        "imageAlt": "Safety summary: Separate clean and used items; Follow method and contact time; Segregate and transfer waste safely",
+        "sources": [
+          "https://www.hse.gov.uk/biosafety/blood-borne-viruses/prevent-exposure/index.htm",
+          "https://www.gov.uk/managing-your-waste-an-overview",
+          "https://www.hse.gov.uk/biosafety/blood-borne-viruses/decontamination/index.htm"
+        ],
+        "minutes": 15
+      },
+      {
+        "title": "Razors, sharps and blood exposure",
+        "subtitle": "Recognise the risk. Choose a practical control.",
+        "intro": "10 minutes including reading, the scenario activity, quick check and written response.",
+        "heading": "Razors, sharps and blood exposure",
+        "body": [
+          "Plan blade handling before starting a service. Use the correct holder and a safe changing method; keep fingers away from the edge. Use a new single-use blade for each client and discard it immediately after use in an appropriate sharps container at the point of use. Keep the container stable, secure and within its fill limit. Never leave a used blade on the workstation.",
+          "Treat a blood exposure as an incident requiring prompt action. Stop the service and follow the exposure procedure. For a puncture wound, HSE advises gently encouraging bleeding, washing with soap and water, and not scrubbing or sucking. Rinse exposed eyes or mouth copiously with water. Report the incident and obtain urgent clinical assessment after a contaminated puncture; do not wait for symptoms.",
+          "Use suitable protection and the approved spill-cleaning process. Dispose of the sharp safely; do not keep it for testing or handle it again unnecessarily. Record the facts and investigate why the incident happened. The specific Health and Safety (Sharp Instruments in Healthcare) Regulations apply to healthcare settings; they should not be presented as a blanket barbering regulation. General risk, COSHH and safe-equipment duties remain relevant."
+        ],
+        "activity": "Take three minutes to plan a fictional blade-change incident response: immediate safe action, first aid, urgent assessment, reporting and disposal. Do not practise with a loose blade.",
+        "task": "In at least 60 words, explain prevention and the response to a contaminated puncture, including why prompt assessment matters.",
+        "minWords": 60,
+        "quiz": {
+          "q": "What is the right response to a contaminated blade puncture?",
+          "a": [
+            "Ignore it if small",
+            "Suck the wound",
+            "Wait until tomorrow",
+            "Follow immediate first aid, report it and seek urgent clinical assessment"
+          ],
+          "correct": 3,
+          "explain": "A small puncture can still need prompt clinical risk assessment."
+        },
+        "points": [
+          "Use and discard blades safely",
+          "Act promptly after exposure",
+          "Report and review the cause"
+        ],
+        "takeaway": "Report and review the cause",
+        "video": "",
+        "image": "assets/free-courses/safety-4.svg",
+        "imageAlt": "Safety summary: Use and discard blades safely; Act promptly after exposure; Report and review the cause",
+        "sources": [
+          "https://www.hse.gov.uk/biosafety/blood-borne-viruses/avoiding-sharps-injuries.htm",
+          "https://www.hse.gov.uk/biosafety/blood-borne-viruses/how-deal-exposure-incident.htm"
+        ],
+        "minutes": 10
+      },
+      {
+        "title": "Electrical, thermal and equipment safety",
+        "subtitle": "Recognise the risk. Choose a practical control.",
+        "intro": "10 minutes including reading, the scenario activity, quick check and written response.",
+        "heading": "Electrical, thermal and equipment safety",
+        "body": [
+          "The Provision and Use of Work Equipment Regulations 1998 (PUWER) require suitable, maintained equipment and adequate information and training. This applies to tools used at work, including personally owned tools used by workers. Check guards, blades, fixings and working condition; follow the manufacturer’s instructions.",
+          "The Electricity at Work Regulations 1989 require equipment to be maintained to prevent danger. Look for damaged plugs, loose or exposed wires, overheating and damaged chargers. Stop using defective equipment, isolate it safely and label it out of use. Repairs should be made by a competent person. Keep electrical equipment away from water and avoid overloaded sockets.",
+          "Annual PAT testing is not a universal legal requirement. Inspection and testing intervals should follow the risk, environment, use and competent advice. A sticker does not override a visible defect. Protect people from hot tools, steam and hot water; check temperature appropriately and let equipment cool before handling or storing it."
+        ],
+        "activity": "Take three minutes to make a pre-use check for a clipper and charger. Include one electrical defect and one mechanical defect that would stop use.",
+        "task": "In at least 60 words, explain the checks, what you would isolate and who should decide when the tool can return to use.",
+        "minWords": 60,
+        "quiz": {
+          "q": "A clipper has a current test label but a damaged cable. What should you do?",
+          "a": [
+            "Use it because the label is current",
+            "Wrap tape around it and continue",
+            "Stop use, isolate safely and arrange competent attention",
+            "Let a learner test it"
+          ],
+          "correct": 2,
+          "explain": "Visible damage requires action regardless of a test label."
+        },
+        "points": [
+          "Check before use",
+          "Isolate defective equipment",
+          "Maintain according to risk"
+        ],
+        "takeaway": "Maintain according to risk",
+        "video": "",
+        "image": "assets/free-courses/safety-5.svg",
+        "imageAlt": "Safety summary: Check before use; Isolate defective equipment; Maintain according to risk",
+        "sources": [
+          "https://www.hse.gov.uk/work-equipment-machinery/puwer-overview.htm",
+          "https://www.hse.gov.uk/electricity/faq-portable-appliance-testing.htm"
+        ],
+        "minutes": 10
+      },
+      {
+        "title": "Slips, trips, posture and handling",
+        "subtitle": "Recognise the risk. Choose a practical control.",
+        "intro": "10 minutes including reading, the scenario activity, quick check and written response.",
+        "heading": "Slips, trips, posture and handling",
+        "body": [
+          "Good housekeeping is an active safety control. Remove hair build-up, deal promptly with spills and keep routes clear. If a spill cannot be removed immediately, prevent access while arranging safe cleaning. A warning sign alone is not a permanent solution. Maintain adequate lighting and suitable flooring under the Workplace (Health, Safety and Welfare) Regulations 1992.",
+          "Arrange frequently used tools within easy reach. Adjust chair height and your position to avoid prolonged awkward bending and raised shoulders. Vary tasks and take suitable recovery opportunities. Report discomfort early and review the work rather than accepting pain as inevitable.",
+          "The Manual Handling Operations Regulations 1992 require avoiding hazardous manual handling where reasonably practicable, assessing unavoidable tasks and reducing the risk. Consider the load, task, environment and individual capability; there is no single legal maximum lifting weight. Split deliveries, use an appropriate aid or obtain help. Do not attempt a client transfer beyond your training and agreed arrangements."
+        ],
+        "activity": "Take three minutes to inspect a fictional chair area and delivery route. Choose one housekeeping change, one posture adjustment and one handling improvement.",
+        "task": "In at least 60 words, justify your three changes and explain how you would check they work.",
+        "minWords": 60,
+        "quiz": {
+          "q": "What is the best approach to a heavy delivery?",
+          "a": [
+            "Assume one legal weight limit suits everyone",
+            "Avoid or reduce the lift and assess the task and person",
+            "Ask the youngest learner to carry it",
+            "Lift quickly to finish sooner"
+          ],
+          "correct": 1,
+          "explain": "Handling risk depends on the whole task and the person, not a single weight rule."
+        },
+        "points": [
+          "Keep routes clear",
+          "Adjust the working position",
+          "Avoid hazardous handling"
+        ],
+        "takeaway": "Avoid hazardous handling",
+        "video": "",
+        "image": "assets/free-courses/safety-6.svg",
+        "imageAlt": "Safety summary: Keep routes clear; Adjust the working position; Avoid hazardous handling",
+        "sources": [
+          "https://www.hse.gov.uk/slips/preventing.htm",
+          "https://www.hse.gov.uk/msd/manual-handling/index.htm",
+          "https://www.hse.gov.uk/workplacetransport/management/workplace.htm"
+        ],
+        "minutes": 10
+      },
+      {
+        "title": "Fire prevention and evacuation",
+        "subtitle": "Recognise the risk. Choose a practical control.",
+        "intro": "10 minutes including reading, the scenario activity, quick check and written response.",
+        "heading": "Fire prevention and evacuation",
+        "body": [
+          "In England and Wales, the Regulatory Reform (Fire Safety) Order 2005 places duties on the responsible person. Identify ignition sources, combustible materials and people at risk. Keep aerosols and other flammable products away from heat and follow storage guidance. Coordinate arrangements where premises are shared.",
+          "Carry out and review a fire risk assessment, record it and maintain appropriate precautions. Do not confuse this fire recording requirement with the general five-employee risk-assessment threshold. Keep escape routes and exits usable; do not wedge open fire doors. Ensure staff understand the alarm, evacuation route, assembly point and how to summon emergency help.",
+          "Plan evacuation for people who may need assistance, including clients and learners. Practise the procedure. If fire occurs, raise the alarm and evacuate according to the plan; call 999 from safety and do not re-enter until authorised. Only use firefighting equipment if trained, it is safe and it does not delay escape. This course does not train you to fight fires."
+        ],
+        "activity": "Take three minutes to sketch two checks before opening: escape route and alarm/communication arrangements. Add how a person needing assistance will be helped under your actual plan.",
+        "task": "In at least 60 words, describe prevention and evacuation priorities, including why a blocked exit requires immediate action.",
+        "minWords": 60,
+        "quiz": {
+          "q": "What is the priority when a fire threatens the shop?",
+          "a": [
+            "Collect everyone’s belongings",
+            "Finish the haircut",
+            "Raise the alarm and evacuate safely",
+            "Try every extinguisher first"
+          ],
+          "correct": 2,
+          "explain": "Life safety and safe evacuation take priority."
+        },
+        "points": [
+          "Prevent ignition and fuel build-up",
+          "Maintain clear escape routes",
+          "Raise alarm and evacuate"
+        ],
+        "takeaway": "Raise alarm and evacuate",
+        "video": "",
+        "image": "assets/free-courses/safety-7.svg",
+        "imageAlt": "Safety summary: Prevent ignition and fuel build-up; Maintain clear escape routes; Raise alarm and evacuate",
+        "sources": [
+          "https://www.gov.uk/workplace-fire-safety-your-responsibilities",
+          "https://www.gov.uk/workplace-fire-safety-your-responsibilities/fire-risk-assessments"
+        ],
+        "minutes": 10
+      },
+      {
+        "title": "First aid, accidents and RIDDOR",
+        "subtitle": "Recognise the risk. Choose a practical control.",
+        "intro": "10 minutes including reading, the scenario activity, quick check and written response.",
+        "heading": "First aid, accidents and RIDDOR",
+        "body": [
+          "The Health and Safety (First-Aid) Regulations 1981 require adequate and appropriate provision for employees based on a needs assessment. Consider hazards, workforce, working hours and cover for absences. Know the first-aid contact, kit location and emergency address. Considering clients and other non-employees in the assessment is good practice. An appointed person is not automatically a trained first aider.",
+          "Call emergency help for serious situations and act within your training. Record accidents and near misses through the agreed process, protect personal information and review controls. An accident record is not the same as a statutory report.",
+          "RIDDOR 2013 requires the responsible person to report specified work-related events, not every minor cut. Examples include specified worker injuries, certain occupational diseases and dangerous occurrences, and over-seven-day incapacity from a work-related accident. That period excludes the accident day but includes rest days; the report is due within 15 days of the accident. Different reportable categories have different deadlines, so consult current HSE guidance.",
+          "A non-worker’s work-related injury may be reportable when they are taken directly from the scene to hospital for treatment. A precautionary visit or diagnostic test alone is not automatically treatment. Record relevant facts and pass them promptly to the responsible person to decide the reporting requirement; do not assume a learner’s worker status."
+        ],
+        "activity": "Take three minutes to compare a minor cut treated on site with a client injured by a shop hazard and taken directly to hospital for treatment. Decide who receives the facts and where you would verify reportability.",
+        "task": "In at least 60 words, explain first-aid arrangements, internal recording and who checks whether a RIDDOR report is needed.",
+        "minWords": 60,
+        "quiz": {
+          "q": "Does every minor workplace cut need a RIDDOR report?",
+          "a": [
+            "Yes, every cut",
+            "No: record appropriately and assess the statutory reporting criteria",
+            "Only if the client complains",
+            "Never, even after serious injury"
+          ],
+          "correct": 1,
+          "explain": "RIDDOR covers defined events; internal recording and learning remain important."
+        },
+        "points": [
+          "Know first-aid arrangements",
+          "Record and learn from incidents",
+          "Check RIDDOR criteria promptly"
+        ],
+        "takeaway": "Check RIDDOR criteria promptly",
+        "video": "",
+        "image": "assets/free-courses/safety-8.svg",
+        "imageAlt": "Safety summary: Know first-aid arrangements; Record and learn from incidents; Check RIDDOR criteria promptly",
+        "sources": [
+          "https://www.hse.gov.uk/firstaid/what-employers-need-to-do.htm",
+          "https://www.hse.gov.uk/riddor/types-of-reportable-incidents.htm"
+        ],
+        "minutes": 10
+      },
+      {
+        "title": "Learners, clients and your safety action plan",
+        "subtitle": "Recognise the risk. Choose a practical control.",
+        "intro": "10 minutes including reading, the scenario activity, quick check and written response.",
+        "heading": "Learners, clients and your safety action plan",
+        "body": [
+          "Young workers and learners may be unfamiliar with risks and reluctant to ask for help. Under the Management Regulations, consider inexperience, lack of awareness and maturity when assessing young people’s work. Provide task-specific induction, clear instruction and suitable supervision. Check understanding through a safe demonstration, not just “Do you understand?”.",
+          "Plan support for disability, pregnancy or other relevant needs through the proper assessment process. Do not assume a confident learner is ready for unsupervised sharp-tool work. Clients also need suitable consultation, explanation, consent and protection during services. Pause a service when it cannot be performed safely.",
+          "Include work-related stress and lone working in your assessment. Review excessive workload, unclear responsibilities and access to support. For opening or closing alone, agree check-in and emergency arrangements and how to respond to threatening behaviour without escalating it. Do not leave an inexperienced learner alone with tasks they cannot safely manage.",
+          "Bring the course together in an opening check and action log. Identify one immediate risk to stop, one improvement with a named owner and deadline, and one review after a change. Include chemical handling, clean equipment, sharps disposal, electrical condition, walkways, fire arrangements and first-aid cover. Escalate unresolved risks instead of signing them off as safe.",
+          "Your final assessment has 20 questions and an 80% pass mark. The two CPD hours are planned learning and activity time, including 15 minutes for assessment. Completing this introduction does not prove compliance with every legal duty or competence in first aid, fire response or all practical barbering skills."
+        ],
+        "activity": "Take three minutes to write a three-action safety plan for a fictional shop introducing a new learner. Give each action an owner, deadline and review trigger.",
+        "task": "In at least 60 words, set out the plan and one check of the learner’s understanding. Do not include confidential personal information.",
+        "minWords": 60,
+        "quiz": {
+          "q": "What is the best way to check a new learner understands a safety routine?",
+          "a": [
+            "Rely only on their nod",
+            "Assume confidence means competence",
+            "Ask a peer to sign for them",
+            "Observe a safe demonstration and check their explanation"
+          ],
+          "correct": 3,
+          "explain": "Observation and explanation provide evidence that the instructions were understood."
+        },
+        "points": [
+          "Induct and supervise learners",
+          "Consider individual needs",
+          "Own and review safety actions"
+        ],
+        "takeaway": "Own and review safety actions",
+        "video": "",
+        "image": "assets/free-courses/safety-9.svg",
+        "imageAlt": "Safety summary: Induct and supervise learners; Consider individual needs; Own and review safety actions",
+        "sources": [
+          "https://www.hse.gov.uk/young-workers/employer/training.htm",
+          "https://www.hse.gov.uk/young-workers/employer/risks.htm",
+          "https://www.hse.gov.uk/stress/overview.htm",
+          "https://www.hse.gov.uk/lone-working/employer/index.htm"
+        ],
+        "minutes": 10
+      }
+    ],
+    "assessmentSettings": {
+      "questionsPerAttempt": 20,
+      "minutes": 15,
+      "passPercent": 80
+    },
+    "notice": "Introductory England-focused CPD. Two planned learning hours; not a first-aid qualification or a guarantee of legal compliance.",
+    "final": [
+      {
+        "q": "Which is the strongest first control for a trailing extension lead?",
+        "a": [
+          "Put up a warning and leave it",
+          "Remove or reroute the lead away from the walkway",
+          "Tell clients to step over it",
+          "Wait for an accident"
+        ],
+        "correct": 1,
+        "explain": "Removing the trip hazard is stronger than relying only on warnings."
+      },
+      {
+        "q": "Is a product safety data sheet the same as your COSHH assessment?",
+        "a": [
+          "Yes, if filed away",
+          "Yes, if the product is expensive",
+          "No: assess the way the product is actually used and exposure controlled",
+          "No assessment is needed for cleaning products"
+        ],
+        "correct": 2,
+        "explain": "The assessment applies hazard information to the real task and exposure."
+      },
+      {
+        "q": "What must happen before disinfecting a visibly dirty reusable tool?",
+        "a": [
+          "Store it immediately",
+          "Remove hair and debris using the approved cleaning method",
+          "Use a shorter contact time",
+          "Call every treatment sterilisation"
+        ],
+        "correct": 1,
+        "explain": "Cleaning enables the intended disinfection process to work."
+      },
+      {
+        "q": "What is the right response to a contaminated blade puncture?",
+        "a": [
+          "Ignore it if small",
+          "Suck the wound",
+          "Wait until tomorrow",
+          "Follow immediate first aid, report it and seek urgent clinical assessment"
+        ],
+        "correct": 3,
+        "explain": "A small puncture can still need prompt clinical risk assessment."
+      },
+      {
+        "q": "A clipper has a current test label but a damaged cable. What should you do?",
+        "a": [
+          "Use it because the label is current",
+          "Wrap tape around it and continue",
+          "Stop use, isolate safely and arrange competent attention",
+          "Let a learner test it"
+        ],
+        "correct": 2,
+        "explain": "Visible damage requires action regardless of a test label."
+      },
+      {
+        "q": "What is the best approach to a heavy delivery?",
+        "a": [
+          "Assume one legal weight limit suits everyone",
+          "Avoid or reduce the lift and assess the task and person",
+          "Ask the youngest learner to carry it",
+          "Lift quickly to finish sooner"
+        ],
+        "correct": 1,
+        "explain": "Handling risk depends on the whole task and the person, not a single weight rule."
+      },
+      {
+        "q": "What is the priority when a fire threatens the shop?",
+        "a": [
+          "Collect everyone’s belongings",
+          "Finish the haircut",
+          "Raise the alarm and evacuate safely",
+          "Try every extinguisher first"
+        ],
+        "correct": 2,
+        "explain": "Life safety and safe evacuation take priority."
+      },
+      {
+        "q": "Does every minor workplace cut need a RIDDOR report?",
+        "a": [
+          "Yes, every cut",
+          "No: record appropriately and assess the statutory reporting criteria",
+          "Only if the client complains",
+          "Never, even after serious injury"
+        ],
+        "correct": 1,
+        "explain": "RIDDOR covers defined events; internal recording and learning remain important."
+      },
+      {
+        "q": "What is the best way to check a new learner understands a safety routine?",
+        "a": [
+          "Rely only on their nod",
+          "Assume confidence means competence",
+          "Ask a peer to sign for them",
+          "Observe a safe demonstration and check their explanation"
+        ],
+        "correct": 3,
+        "explain": "Observation and explanation provide evidence that the instructions were understood."
+      },
+      {
+        "q": "Which statement correctly describes risk?",
+        "a": [
+          "The chance and seriousness of harm",
+          "Any object in the shop",
+          "A completed form",
+          "Only an accident that happened"
+        ],
+        "correct": 0,
+        "explain": "Review the relevant module and apply the specified safe system of work."
+      },
+      {
+        "q": "When should risk controls be reviewed?",
+        "a": [
+          "Only every ten years",
+          "After relevant changes, incidents or evidence they are ineffective",
+          "Never after opening",
+          "Only when a client asks"
+        ],
+        "correct": 1,
+        "explain": "Review the relevant module and apply the specified safe system of work."
+      },
+      {
+        "q": "How should a disinfectant be used?",
+        "a": [
+          "Any concentration that smells strong",
+          "Mix it with other cleaners",
+          "Follow its approved concentration, contact time and compatibility instructions",
+          "Spray and instantly wipe in every case"
+        ],
+        "correct": 2,
+        "explain": "Review the relevant module and apply the specified safe system of work."
+      },
+      {
+        "q": "Where should a used single-use razor blade go?",
+        "a": [
+          "On the counter",
+          "Into recycling",
+          "Wrapped in a towel",
+          "Immediately into an appropriate sharps container"
+        ],
+        "correct": 3,
+        "explain": "Review the relevant module and apply the specified safe system of work."
+      },
+      {
+        "q": "What should happen if a sharps container reaches its fill limit?",
+        "a": [
+          "Close and replace it through the approved waste process",
+          "Push contents down",
+          "Keep filling it",
+          "Empty it into a general bin"
+        ],
+        "correct": 0,
+        "explain": "Review the relevant module and apply the specified safe system of work."
+      },
+      {
+        "q": "What is the best response to persistent work-related skin irritation?",
+        "a": [
+          "Ignore it",
+          "Report it, review exposure and seek appropriate assessment",
+          "Wear contaminated gloves longer",
+          "Stop washing hands"
+        ],
+        "correct": 1,
+        "explain": "Review the relevant module and apply the specified safe system of work."
+      },
+      {
+        "q": "Which statement about PPE is correct?",
+        "a": [
+          "Workers must always buy required PPE",
+          "PPE removes the need for risk assessment",
+          "Required suitable PPE must be provided free to covered workers, with instruction",
+          "Any glove suits any chemical"
+        ],
+        "correct": 2,
+        "explain": "Review the relevant module and apply the specified safe system of work."
+      },
+      {
+        "q": "What should you do with a blocked fire exit?",
+        "a": [
+          "Leave it until the next audit",
+          "Put up a small sign",
+          "Assume the other door is enough",
+          "Remove the obstruction promptly and keep the route usable"
+        ],
+        "correct": 3,
+        "explain": "Review the relevant module and apply the specified safe system of work."
+      },
+      {
+        "q": "Does an appointed first-aid person automatically hold first-aid training?",
+        "a": [
+          "No: assess and provide the appropriate personnel and training",
+          "Yes, by job title",
+          "Yes, after reading this course",
+          "Only if they are the manager"
+        ],
+        "correct": 0,
+        "explain": "Review the relevant module and apply the specified safe system of work."
+      },
+      {
+        "q": "Who should handle potentially hazardous equipment?",
+        "a": [
+          "Any available visitor",
+          "People with suitable instruction, training and supervision",
+          "Only the fastest learner",
+          "Anyone who owns it"
+        ],
+        "correct": 1,
+        "explain": "Review the relevant module and apply the specified safe system of work."
+      },
+      {
+        "q": "What is an effective safety action log?",
+        "a": [
+          "A list with no owner",
+          "A tick beside every hazard",
+          "Specific controls with responsible people, deadlines and review checks",
+          "Only a note of past accidents"
+        ],
+        "correct": 2,
+        "explain": "Review the relevant module and apply the specified safe system of work."
+      }
+    ]
+  }
+});

@@ -1,3 +1,7 @@
+# Latest update — 29 October 2026
+
+Start with [UPDATE-29-OCT-2026.md](UPDATE-29-OCT-2026.md). The live catalogue now has 12 courses, individually displayed hours, half-price existing courses and two free additions. Older release notes below describe previous builds.
+
 # SS Training — Finishing Upgrade v3
 
 This package preserves the existing SS Training premium design and upgrades the learning/assessment engine.
